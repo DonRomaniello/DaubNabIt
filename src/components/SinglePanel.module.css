@@ -1,0 +1,8 @@
+.colorBar {
+ width: 33vw;
+ height: 66vh;
+ border-radius: 10px;
+ margin: 10px;
+ flex: auto;
+ background-color: var(--color)
+}

@@ -1,8 +1,26 @@
 .colorBar {
- width: 33vw;
- height: 66vh;
- border-radius: 10px;
- margin: 10px;
+ width: 30vw;
+ height: 30vw;
+ border-radius: 5%;
+ margin: 1vw;
  flex: auto;
- background-color: var(--color)
+}
+
+.underHex {
+  text-align: center;
+}
+
+.rgbHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rgbElement {
+  width: 30%;
+ height: 10px;
+ border-radius: 5%;
+ margin: 1.5%;
+ flex: auto;
+ text-align: center;
 }

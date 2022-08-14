@@ -27,7 +27,7 @@ export function SinglePanel(props) {
           backgroundColor: color,
         }} / >
       <div className={styles.underHex}>
-      {color.toUpperCase()}
+      Hex: {color.toUpperCase()}
       </div>
       <div className={styles.rgbHolder}>
       {Object.keys(rgb).map((test) => {

@@ -1,8 +1,7 @@
 .colorBar {
  width: 30vw;
  height: 30vw;
- border-radius: 5%;
- margin: 1vw;
+ border-radius: 10%;
  flex: auto;
 }
 

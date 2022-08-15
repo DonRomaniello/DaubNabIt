@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 
+import { useDispatch } from 'react-redux';
+
+import { reGenerate } from '../app/store/panelsSlice';
+
+import { makeRGBObject } from '../modules/makeRGBObject';
+
 import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
 
   const { color } = props
 
-  const makeRGBObject = (hex) => {
-    const rHex = hex.slice(1,3)
-    const gHex = hex.slice(3,5)
-    const bHex = hex.slice(5)
-
-    const Red = parseInt(rHex, 16)
-    const Green = parseInt(gHex, 16)
-    const Blue = parseInt(bHex, 16)
-
-    return { Red, Green, Blue }
-  }
+  const dispatch = useDispatch();
 
   const [rgb, setRgb] = useState(makeRGBObject(color))
 
@@ -25,15 +21,17 @@ export function SinglePanel(props) {
       <div className={styles.colorBar}
         style={{
           backgroundColor: color,
-        }} / >
+        }}
+        onClick={() => dispatch(reGenerate())}
+        / >
       <div className={styles.underHex}>
       Hex: {color.toUpperCase()}
       </div>
       <div className={styles.rgbHolder}>
-      {Object.keys(rgb).map((test) => {
+      {Object.keys(rgb).map((channel) => {
         return (
-        <div className={styles.rgbElement}>
-          {test} : {rgb[test]}
+        <div key={channel} className={styles.rgbElement}>
+          {channel} : {rgb[channel]}
         </div>
         )
       })}

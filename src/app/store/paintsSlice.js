@@ -4,6 +4,8 @@ import { _setRGBData } from '../../modules/_setRGBData';
 
 import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
+
+
 const paints = require('../../resources/json/behr.json');
 
 const _sortPaints = (paintA, paintB) => {

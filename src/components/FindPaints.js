@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectPaints } from '../app/store/paintsSlice';
+import { selectPaints, sortPaints } from '../app/store/paintsSlice';
 
 import { selectSwatchMatches } from '../app/store/paintsSlice';
 
@@ -20,6 +20,10 @@ export function FindPaints() {
   return (
     <div className={styles.findPaintsBody}>
       <button className={styles.findButton}>Find Paints</button>
+      <button
+      className={styles.findButton}
+      onClick={() => dispatch(sortPaints())}
+      >Sort Paints</button>
     </div>
   )
 }

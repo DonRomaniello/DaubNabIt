@@ -14,11 +14,13 @@ export function SinglePanel(props) {
 
   const dispatch = useDispatch();
 
-  // for (let i = )
+  let sevenBySeven = []
 
+  for (let i = 0; i < 49; i++){
+    sevenBySeven.push(i)
+  }
 
-
-
+  console.log(sevenBySeven)
 
   return (
     <div>
@@ -28,7 +30,11 @@ export function SinglePanel(props) {
         }}
         onClick={() => dispatch(reGenerate())}
         >
-
+          <div className={styles.gridTest} >
+            {sevenBySeven.map((number) => {
+              return (<div></div>)
+            })}
+          </div>
         </div>
       <div className={styles.underHex}>
       Hex: {color.toUpperCase()}

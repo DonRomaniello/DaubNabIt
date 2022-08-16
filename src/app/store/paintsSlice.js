@@ -5,7 +5,6 @@ import { makeRGBObject } from '../../modules/makeRGBObject';
 const paints = require('../../resources/json/behr.json');
 
 const _sortPaints = (paintA, paintB) => {
-
   if (paintA.rgb.Red > paintB.rgb.Red) {
     return -1;
   } else if (paintA.rgb.Red == paintB.rgb.Red) {

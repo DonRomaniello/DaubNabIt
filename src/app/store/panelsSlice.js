@@ -10,7 +10,12 @@ const randomHexColor = () => {
   let g = randHex()
   let b = randHex()
 
-  return '#' + r + g + b
+  let color = '#' + r + g + b
+
+  return {
+    color,
+    matches: [],
+  }
 }
 
 const initializer = () => {

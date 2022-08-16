@@ -4,7 +4,7 @@ import { useSelector, dispatch, useDispatch } from 'react-redux';
 
 import { selectPanels } from '../app/store/panelsSlice';
 
-import { setRGBs } from '../app/store/paintsSlice';
+import { setRGBs, sortPaints } from '../app/store/paintsSlice';
 
 import { SinglePanel } from './SinglePanel';
 
@@ -18,12 +18,13 @@ export function Panels() {
 
   useEffect(() => {
     dispatch(setRGBs())
+    dispatch(sortPaints())
   }, [panels, dispatch])
 
   return (
     <div className={styles.row}>
       {panels.map((panel, idx) => {
-        return <SinglePanel key={panel + idx} color={panel}/>
+        return <SinglePanel key={panel.color + idx} color={panel.color}/>
       })}
     </div>
   );

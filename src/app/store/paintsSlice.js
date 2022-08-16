@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { makeRGBObject } from '../../modules/makeRGBObject';
+import { _setRGBData } from '../../modules/_setRGBData';
+
+import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
 const paints = require('../../resources/json/behr.json');
 
@@ -42,19 +44,20 @@ export const paintsSlice = createSlice({
   name: 'paints',
   initialState,
   reducers: {
-    setRGBs: (state) => {
-      state.paints = state.paints.map((paint) => { return { ...paint, rgb : makeRGBObject(paint.hex)}});
+    setRGBData: (state) => {
+      state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
     sortPaints: (state) => {
       state.paints = state.paints.sort(_sortPaints)
-    }
+    },
+
     // getMatches: (state, action) => {
     //   state.swatchMatches = action.payload
     // },
   }
 });
 
-export const { setRGBs, sortPaints } = paintsSlice.actions;
+export const { setRGBData, sortPaints } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 

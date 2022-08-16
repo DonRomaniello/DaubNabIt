@@ -1,4 +1,4 @@
-export const makeRGBObject = (hex) => {
+export const _setRGBData = (hex) => {
   const rHex = hex.slice(1,3)
   const gHex = hex.slice(3,5)
   const bHex = hex.slice(5)

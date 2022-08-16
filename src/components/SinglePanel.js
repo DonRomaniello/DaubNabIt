@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { reGenerate } from '../app/store/panelsSlice';
 
-import { makeRGBObject } from '../modules/makeRGBObject';
+import { _setRGBData } from '../modules/_setRGBData';
 
 import styles from './SinglePanel.module.css';
 
@@ -14,7 +14,7 @@ export function SinglePanel(props) {
 
   const dispatch = useDispatch();
 
-  const [rgb, setRgb] = useState(makeRGBObject(color))
+  const [rgb, setRgb] = useState(_setRGBData(color))
 
   return (
     <div>

@@ -4,26 +4,32 @@ import { useDispatch } from 'react-redux';
 
 import { reGenerate } from '../app/store/panelsSlice';
 
-import { _setRGBData } from '../modules/_setRGBData';
-
 import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
 
-  const { color } = props
+  const { color, rgb, matches } = props.panel
+
+  const [range, setRange] = useState(50);
 
   const dispatch = useDispatch();
 
-  const [rgb, setRgb] = useState(_setRGBData(color))
+  // for (let i = )
+
+
+
+
 
   return (
     <div>
       <div className={styles.colorBar}
         style={{
-          backgroundColor: color,
+          background: color,
         }}
         onClick={() => dispatch(reGenerate())}
-        / >
+        >
+
+        </div>
       <div className={styles.underHex}>
       Hex: {color.toUpperCase()}
       </div>

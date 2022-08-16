@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { reGenerate } from '../app/store/panelsSlice';
 
+import { _makeHex } from '../modules/_makeHex';
+
 import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
@@ -41,16 +43,16 @@ export function SinglePanel(props) {
 
   const applyTint = (tint) => {
     let rgbTinted = `rgb(${tint.Red + rgb.Red}, ${tint.Green + rgb.Green}, ${tint.Blue + rgb.Blue})`
-   console.log(rgbTinted)
       return rgbTinted
   }
+
+
   return (
     <div>
       <div className={styles.colorBar}
         style={{
           background: color,
         }}
-        onClick={() => dispatch(reGenerate())}
         >
           <div className={styles.gridContainer} >
             {grid.map((tint) => {
@@ -59,6 +61,10 @@ export function SinglePanel(props) {
                 style={{
                   background: applyTint(tint),
                 }}
+                onMouseEnter={() => setDisplayedHex(_makeHex(
+                  {Red: tint.Red + rgb.Red,
+                  Green: tint.Green + rgb.Green,
+                  Blue: tint.Blue + rgb.Blue}))}
                 />)
             })}
           </div>

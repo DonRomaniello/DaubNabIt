@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
+import Countdown from 'react-countdown';
 
 import { CSSTransition } from 'react-transition-group';
 
-import { dispatch, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { selectPaints } from '../app/store/paintsSlice';
 
-import { selectTimer } from '../app/store/timerSlice';
-
-import {
-  resetTimer,
-  incrementTimer,
-} from '../app/store/timerSlice'
 
 import styles from './PaintParade.module.css'
 
@@ -19,40 +15,28 @@ export function PaintParade() {
 
   const dispatch = useDispatch();
 
-  const msPerPaint = 1000;
+  const msPerPaint = 100;
 
   const paints = useSelector(selectPaints);
 
-  const { timer, lastTime }  = useSelector(selectTimer)
-
   const [opened, isOpened] = useState(true);
 
-  useEffect(() => {
-    dispatch(resetTimer())
-  }, [])
-
-
-  // useEffect(() => {
-  //   const callIncrement = () => {
-  //     dispatch(incrementTimer())
-  //   }
-  //   setInterval(callIncrement, msPerPaint)
-  // }, [timer, dispatch])
-
-
-
+  // const [timeNow, setTimeNow] = useState({});
 
   return (
     <div>
-
-      <CSSTransition
+      <Countdown date={Date.now() + 10000}
+       onTick={props => console.log(props)}
+      //  renderer={() => {}}
+       />
+      {/* <CSSTransition
         in={opened}
         timeout={300}
         classNames="alert"
         unmountOnExit
         // onEnter={() => setShowButton(false)}
         // onExited={() => setShowButton(true)}
-        >
+        > */}
       {/* {paints.map((paint) => {
         return (
           <div
@@ -65,9 +49,9 @@ export function PaintParade() {
         )
       })} */}
       <div>
-      {lastTime}, {timer}
+        {/* {timeNow.seconds} */}
       </div>
-      </CSSTransition>
+      {/* </CSSTransition> */}
     </div>
   )
 

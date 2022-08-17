@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -8,13 +8,15 @@ import { _makeHex } from '../modules/_makeHex';
 
 import { _createTintGrid } from '../modules/_createTintGrid';
 
+import { PaintParade } from './PaintParade';
+
 import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
 
   const { color, rgb, matches } = props.panel
 
-  const [range, setRange] = useState(10);
+  const [range, setRange] = useState(0);
 
   const [grid, setGrid] = useState(_createTintGrid(range))
 
@@ -25,6 +27,9 @@ export function SinglePanel(props) {
       return rgbTinted
   }
 
+  useEffect(() => {
+    setGrid(_createTintGrid(range))
+  }, [range])
 
   return (
     <div>
@@ -60,6 +65,7 @@ export function SinglePanel(props) {
         )
       })}
       </div>
+      <PaintParade />
     </div>
   )
 }

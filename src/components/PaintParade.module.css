@@ -1,0 +1,16 @@
+body {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Place {
+  padding-top: 5vh;
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}

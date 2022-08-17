@@ -31,7 +31,6 @@ const initialState = {
 export const panelsSlice = createSlice({
   name: 'panels',
   initialState,
-
   reducers: {
     reGenerate: (state) => {
       state.colors = initializer();

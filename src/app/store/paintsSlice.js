@@ -4,8 +4,6 @@ import { _setRGBData } from '../../modules/_setRGBData';
 
 import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
-
-
 const paints = require('../../resources/json/behr.json');
 
 const _sortPaints = (paintA, paintB) => {
@@ -31,15 +29,6 @@ const initialState = {
   swatchMatches: [],
 }
 
-// const _getMatches = (colors) => {
-
-
-
-
-
-
-// }
-
 
 
 export const paintsSlice = createSlice({
@@ -50,7 +39,7 @@ export const paintsSlice = createSlice({
       state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
     sortPaints: (state) => {
-      state.paints = state.paints.sort(_sortPaints)
+      state.paints = [...new Set(state.paints.sort(_sortPaints))]
     },
 
     // getMatches: (state, action) => {

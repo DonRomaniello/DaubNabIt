@@ -30,9 +30,10 @@ export function PaintParade() {
         // onEnter={() => setShowButton(false)}
         // onExited={() => setShowButton(true)}
         > */}
-      {/* {paints.map((paint) => {
+      {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint) => {
         return (
           <div
+          key={paint.label}
           className={styles.swatch}
           style={{
             background: paint.hex,
@@ -40,7 +41,7 @@ export function PaintParade() {
             {paint.name}
           </div>
         )
-      })} */}
+      })}
       <div>
         {timer}
       </div>

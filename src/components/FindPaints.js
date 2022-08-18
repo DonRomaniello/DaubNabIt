@@ -29,10 +29,12 @@ export function FindPaints() {
 
   return (
     <div>
-      <Countdown date={Date.now() + 10000}
-       intervalDelay={msPerPaint}
-       onTick={() => dispatch(incrementTimer())}
-       //  renderer={() => {}}
+      <Countdown
+        date={1} // This is required...
+        overtime={true}
+        intervalDelay={msPerPaint}
+        onTick={() => dispatch(incrementTimer())}
+        renderer={() => {}}
        />
       <div className={styles.findPaintsBody}>
         <button className={styles.findButton}>Find Paints</button>

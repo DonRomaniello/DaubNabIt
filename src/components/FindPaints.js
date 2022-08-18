@@ -30,6 +30,7 @@ export function FindPaints() {
   return (
     <div>
       <Countdown date={Date.now() + 10000}
+       intervalDelay={msPerPaint}
        onTick={() => dispatch(incrementTimer())}
        //  renderer={() => {}}
        />

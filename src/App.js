@@ -4,6 +4,8 @@ import { Panels } from './components/Panels'
 
 import {FindPaints} from './components/FindPaints'
 
+
+
 import './App.css';
 
 function App() {

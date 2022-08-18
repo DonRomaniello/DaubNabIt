@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-import Countdown from 'react-countdown';
-
 import { CSSTransition } from 'react-transition-group';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectPaints } from '../app/store/paintsSlice';
+import { selectTimer } from '../app/store/timerSlice';
 
+import { selectPaints } from '../app/store/paintsSlice';
 
 import styles from './PaintParade.module.css'
 
@@ -15,20 +14,14 @@ export function PaintParade() {
 
   const dispatch = useDispatch();
 
-  const msPerPaint = 100;
-
   const paints = useSelector(selectPaints);
+
+  const { timer } = useSelector(selectTimer);
 
   const [opened, isOpened] = useState(true);
 
-  // const [timeNow, setTimeNow] = useState({});
-
   return (
     <div>
-      <Countdown date={Date.now() + 10000}
-       onTick={props => console.log(props)}
-      //  renderer={() => {}}
-       />
       {/* <CSSTransition
         in={opened}
         timeout={300}
@@ -49,7 +42,7 @@ export function PaintParade() {
         )
       })} */}
       <div>
-        {/* {timeNow.seconds} */}
+        {timer}
       </div>
       {/* </CSSTransition> */}
     </div>

@@ -35,11 +35,21 @@ export const panelsSlice = createSlice({
     reGenerate: (state) => {
       state.colors = initializer();
     },
+    addMatch: (state, action) => {
+      console.log('match found')
+      state.colors = state.colors.map((panel) => {
+        if (panel.matches.includes(action.payload.paint)) {
+          return panel
+        } else {
+          return ({...panel, matches: [...panel.matches, action.payload.paint]})
+        }
+      })
+    }
   },
 
 });
 
-export const { reGenerate } = panelsSlice.actions;
+export const { reGenerate, addMatch } = panelsSlice.actions;
 
 export const selectPanels = (state) => state.panels.colors;
 

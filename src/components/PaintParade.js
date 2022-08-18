@@ -8,9 +8,13 @@ import { selectTimer } from '../app/store/timerSlice';
 
 import { selectPaints } from '../app/store/paintsSlice';
 
+import { addMatch } from '../app/store/panelsSlice';
+
 import styles from './PaintParade.module.css'
 
-export function PaintParade() {
+export function PaintParade(props) {
+
+  const { color } = props;
 
   const dispatch = useDispatch();
 
@@ -30,10 +34,18 @@ export function PaintParade() {
         // onEnter={() => setShowButton(false)}
         // onExited={() => setShowButton(true)}
         > */}
-      {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint) => {
+      {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint, idx) => {
+        // if (idx == 0){
+        //   let paintHex = paint.hex.toUpperCase()
+        //   let panelHex = color.toUpperCase()
+        //   if (paintHex == panelHex) {
+        //     dispatch(addMatch({ color, paint}))
+        //   }
+        // }
         return (
           <div
-          key={paint.label}
+          key={paint.label + paint.hex + paint.name}
+          // key={paint.name}
           className={styles.swatch}
           style={{
             background: paint.hex,

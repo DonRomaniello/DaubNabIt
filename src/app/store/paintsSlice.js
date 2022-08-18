@@ -29,8 +29,6 @@ const initialState = {
   swatchMatches: [],
 }
 
-
-
 export const paintsSlice = createSlice({
   name: 'paints',
   initialState,
@@ -39,7 +37,7 @@ export const paintsSlice = createSlice({
       state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
     sortPaints: (state) => {
-      state.paints = [...new Set(state.paints.sort(_sortPaints))]
+      state.paints = state.paints.sort(_sortPaints)
     },
 
     // getMatches: (state, action) => {

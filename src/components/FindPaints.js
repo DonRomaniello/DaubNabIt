@@ -23,7 +23,7 @@ export function FindPaints() {
 
   const time = useSelector(selectTimer);
 
-  const msPerPaint = 100;
+  const msPerPaint = 1000;
 
   const swatchMatches = useSelector(selectSwatchMatches)
 

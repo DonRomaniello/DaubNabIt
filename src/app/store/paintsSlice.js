@@ -26,7 +26,6 @@ const _sortPaints = (paintA, paintB) => {
 
 const initialState = {
   paints,
-  swatchMatches: [],
 }
 
 export const paintsSlice = createSlice({
@@ -39,17 +38,11 @@ export const paintsSlice = createSlice({
     sortPaints: (state) => {
       state.paints = state.paints.sort(_sortPaints)
     },
-
-    // getMatches: (state, action) => {
-    //   state.swatchMatches = action.payload
-    // },
   }
 });
 
 export const { setRGBData, sortPaints } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
-
-export const selectSwatchMatches = (state) => state.paints.swatchMatches;
 
 export default paintsSlice.reducer;

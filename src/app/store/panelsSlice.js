@@ -2,6 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { _setRGBData } from '../../modules/_setRGBData';
 
+import { _searchPaints } from '../../modules/_searchPaints';
+
+const paints = require('../../resources/json/behr.json');
+
 const randomPanel = () => {
   const randHex = () => {
     return Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
@@ -14,7 +18,7 @@ const randomPanel = () => {
   return {
     color,
     rgb,
-    matches: [],
+    matches: _searchPaints(rgb, paints),
   }
 }
 
@@ -35,21 +39,15 @@ export const panelsSlice = createSlice({
     reGenerate: (state) => {
       state.colors = initializer();
     },
-    addMatch: (state, action) => {
-      console.log('match found')
-      state.colors = state.colors.map((panel) => {
-        if (panel.matches.includes(action.payload.paint)) {
-          return panel
-        } else {
-          return ({...panel, matches: [...panel.matches, action.payload.paint]})
-        }
+    findMatches: (state, action) => {
+      state.colors.forEach((color) => {
+        console.log(color.matches)
       })
-    }
-  },
-
+    },
+  }
 });
 
-export const { reGenerate, addMatch } = panelsSlice.actions;
+export const { reGenerate, findMatches } = panelsSlice.actions;
 
 export const selectPanels = (state) => state.panels.colors;
 

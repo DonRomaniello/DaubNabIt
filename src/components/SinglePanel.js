@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, dispatch } from 'react-redux';
 
-import { reGenerate } from '../app/store/panelsSlice';
+import {  reGenerate,
+          findMatches
+         } from '../app/store/panelsSlice';
 
 import { _makeHex } from '../modules/_makeHex';
 
@@ -15,6 +17,8 @@ import styles from './SinglePanel.module.css';
 export function SinglePanel(props) {
 
   const { color, rgb, matches } = props.panel
+
+  const dispatch = useDispatch();
 
   const [range, setRange] = useState(0);
 
@@ -29,6 +33,7 @@ export function SinglePanel(props) {
 
   useEffect(() => {
     setGrid(_createTintGrid(range))
+    dispatch(findMatches())
   }, [range])
 
   return (

@@ -8,8 +8,6 @@ import { selectTimer } from '../app/store/timerSlice';
 
 import { selectPaints } from '../app/store/paintsSlice';
 
-import { addMatch } from '../app/store/panelsSlice';
-
 import styles from './PaintParade.module.css'
 
 export function PaintParade(props) {

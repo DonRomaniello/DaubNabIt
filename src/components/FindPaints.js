@@ -11,8 +11,6 @@ import { selectTimer,
 
 import { selectPaints } from '../app/store/paintsSlice';
 
-import { selectSwatchMatches } from '../app/store/paintsSlice';
-
 import styles from './FindPaints.module.css';
 
 export function FindPaints() {
@@ -24,8 +22,6 @@ export function FindPaints() {
   const time = useSelector(selectTimer);
 
   const msPerPaint = 1000;
-
-  const swatchMatches = useSelector(selectSwatchMatches)
 
   return (
     <div>

@@ -71,7 +71,7 @@ export function SinglePanel(props) {
         )
       })}
       </div>
-      <PaintParade color={color}/>
+      <PaintParade color={color} matches={matches}/>
     </div>
   )
 }

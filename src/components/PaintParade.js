@@ -12,7 +12,7 @@ import styles from './PaintParade.module.css'
 
 export function PaintParade(props) {
 
-  const { color } = props;
+  const { color, matches } = props;
 
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ export function PaintParade(props) {
         // onEnter={() => setShowButton(false)}
         // onExited={() => setShowButton(true)}
         > */}
-      {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint, idx) => {
+      {/* {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint, idx) => {
         // if (idx == 0){
         //   let paintHex = paint.hex.toUpperCase()
         //   let panelHex = color.toUpperCase()
@@ -51,7 +51,30 @@ export function PaintParade(props) {
             {paint.name}
           </div>
         )
+      })} */}
+      {matches.slice(0,5).map((match, idx) => {
+
+        if (idx < timer) {
+        return (
+          // console.log(match)
+          <div
+          key={match.paint.label + match.paint.hex + match.paint.name}
+          // key={paint.name}
+          className={styles.swatch}
+          style={{
+            background: match.paint.hex,
+          }}>
+            {match.paint.name}
+          </div>
+        )
+        }
       })}
+
+
+
+
+
+
       <div>
         {timer}
       </div>

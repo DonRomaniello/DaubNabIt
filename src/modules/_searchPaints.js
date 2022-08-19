@@ -9,7 +9,7 @@ const closenessCalculation = (target, match) => {
 }
 
 
-export const _searchPaints = (color, paints, range = 50) => {
+export const _searchPaints = (color, paints, range = 20) => {
   const matches = []
   paints.forEach((paint) => {
     paint.rgb = _setRGBData(paint.hex)
@@ -22,5 +22,5 @@ export const _searchPaints = (color, paints, range = 50) => {
       }
     }
   })
-  return matches
+  return matches.sort((a, b) => a.closeness - b.closeness)
 }

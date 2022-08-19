@@ -24,60 +24,20 @@ export function PaintParade(props) {
 
   return (
     <div>
-      {/* <CSSTransition
-        in={opened}
-        timeout={300}
-        classNames="alert"
-        unmountOnExit
-        // onEnter={() => setShowButton(false)}
-        // onExited={() => setShowButton(true)}
-        > */}
-      {/* {paints.length > timer - 5 && paints.slice(timer, (timer + 5)).map((paint, idx) => {
-        // if (idx == 0){
-        //   let paintHex = paint.hex.toUpperCase()
-        //   let panelHex = color.toUpperCase()
-        //   if (paintHex == panelHex) {
-        //     dispatch(addMatch({ color, paint}))
-        //   }
-        // }
-        return (
-          <div
-          key={paint.label + paint.hex + paint.name}
-          // key={paint.name}
-          className={styles.swatch}
-          style={{
-            background: paint.hex,
-          }}>
-            {paint.name}
-          </div>
-        )
-      })} */}
       {matches.slice(0,5).map((match, idx) => {
-
         if (idx < timer) {
         return (
-          // console.log(match)
           <div
           key={match.paint.label + match.paint.hex + match.paint.name}
-          // key={paint.name}
           className={styles.swatch}
           style={{
             background: match.paint.hex,
           }}>
-            {match.paint.name}
+            {match.paint.name}: {match.closeness}
           </div>
         )
         }
       })}
-
-
-
-
-
-
-      <div>
-        {timer}
-      </div>
       {/* </CSSTransition> */}
     </div>
   )

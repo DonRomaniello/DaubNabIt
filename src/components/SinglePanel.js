@@ -60,7 +60,6 @@ export function SinglePanel(props) {
         </div>
       <div className={styles.underHex}>
       Hex: {displayedHex.toUpperCase()}
-      Matches: {matches.length}
       </div>
       <div className={styles.rgbHolder}>
       {Object.keys(rgb).map((channel) => {

@@ -41,7 +41,6 @@ export const panelsSlice = createSlice({
     },
     findMatches: (state, action) => {
       state.colors.forEach((color) => {
-        console.log(color.matches)
       })
     },
   }

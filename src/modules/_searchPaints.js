@@ -9,18 +9,13 @@ const closenessCalculation = (target, match) => {
 }
 
 
-export const _searchPaints = (color, paints, range = 20) => {
+export const _searchPaints = (color, paints) => {
   const matches = []
   paints.forEach((paint) => {
     paint.rgb = _setRGBData(paint.hex)
-    if (paint.rgb.Red <= (color.Red + range) && paint.rgb.Red >= (color.Red - range)) {
-      if (paint.rgb.Green <= (color.Green + range) && paint.rgb.Green >= (color.Green - range)) {
-        if (paint.rgb.Blue <= (color.Blue + range) && paint.rgb.Blue >= (color.Blue - range)) {
-          const closeness = closenessCalculation(color, paint)
-          matches.push({ paint, closeness })
-        }
-      }
-    }
+    const closeness = closenessCalculation(color, paint)
+    matches.push({ paint, closeness })
+    console.log('uns')
   })
   return matches.sort((a, b) => a.closeness - b.closeness)
 }

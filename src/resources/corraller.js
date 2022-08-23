@@ -31,7 +31,7 @@ const _makeHex = (rgbObject) => {
 
 }
 
-
+let counter = 0;
 
 fileList.forEach((fileName) => {
   fs.readFile((testFolder + '/' + fileName), (err, data) => {
@@ -45,40 +45,25 @@ fileList.forEach((fileName) => {
 
     let paints = JSON.parse(data)
 
-
-    // "hex": "rgb(243, 152, 175)"
-
     // The Valspar Contingency...
     if (paints[0].hex.slice(0,3) == 'rgb'){
-
       paints.forEach((paint) => {
-
         const cleanedRGB = paint.hex.slice(4, -1).split(',')
-
-
-
         const colorObject = {
           Red: Number(cleanedRGB[0]),
           Green: Number(cleanedRGB[1].slice(1)),
           Blue: Number(cleanedRGB[2].slice(1)),
         }
         paint.hex = _makeHex(colorObject)
-        console.log(paint)
       })
-
-
-
-
     }
 
     masterPaints[keyForPaints] = paints
 
-    // console.log(masterPaints[keyForPaints])
-    // console.log(Object.keys(masterPaints))
-    // console.log(fileName.slice(0, -5))
+    fs.writeFileSync(testFolder + '/allPaints.json', JSON.stringify(masterPaints, null, '\t'))
+
   });
 })
-
 
 
 

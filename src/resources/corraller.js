@@ -8,7 +8,7 @@ let testFolder = path.resolve(process.cwd(), './json/');
 
 let fileList = fs.readdirSync(testFolder);
 
-let masterPaints = {};
+let masterPaints = [];
 
 const _makeHex = (rgbObject) => {
 
@@ -58,7 +58,11 @@ fileList.forEach((fileName) => {
       })
     }
 
-    masterPaints[keyForPaints] = paints
+    paints.forEach((paint) => {
+      paint.brand = keyForPaints;
+    })
+
+    masterPaints = [...masterPaints, ...paints]
 
     fs.writeFileSync(testFolder + '/allPaints.json', JSON.stringify(masterPaints, null, '\t'))
 

@@ -8,8 +8,8 @@
 .findButton {
   background-color: #ECF4FE;
   border: 0px;
-  margin: 2vh;
-  padding: 2vh;
+  margin: 10px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 24px;
   filter: drop-shadow(0 1px 1px black);

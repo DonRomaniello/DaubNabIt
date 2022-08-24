@@ -15,7 +15,6 @@ export const _searchPaints = (color, paints) => {
     paint.rgb = _setRGBData(paint.hex)
     const closeness = closenessCalculation(color, paint)
     matches.push({ paint, closeness })
-    console.log('uns')
   })
   return matches.sort((a, b) => a.closeness - b.closeness)
 }

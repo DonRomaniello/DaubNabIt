@@ -1,10 +1,26 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
 import { _setRGBData } from '../../modules/_setRGBData';
 
 import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
-const paints = require('../../resources/json/behr.json');
+import { unzip } from 'fflate';
+
+let paints = []
+
+const _loadPaints = () => {
+  const zipPaints = require('../../resources/allPaints.json.gz');
+
+  let unzippedPaints = []
+
+  unzip(zipPaints, (err, unzipped) => {
+    unzippedPaints = unzipped;
+  })
+
+  return unzippedPaints
+
+}
 
 const _sortPaints = (paintA, paintB) => {
   if (paintA.rgb.Red > paintB.rgb.Red) {
@@ -25,13 +41,16 @@ const _sortPaints = (paintA, paintB) => {
 }
 
 const initialState = {
-  paints,
+  paints: [],
 }
 
 export const paintsSlice = createSlice({
   name: 'paints',
   initialState,
   reducers: {
+    loadPaints: (state) => {
+      state.paints = _loadPaints()
+    },
     setRGBData: (state) => {
       state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
@@ -41,7 +60,7 @@ export const paintsSlice = createSlice({
   }
 });
 
-export const { setRGBData, sortPaints } = paintsSlice.actions;
+export const { loadPaints, setRGBData, sortPaints } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 

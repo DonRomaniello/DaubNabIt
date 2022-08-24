@@ -11,7 +11,15 @@ import { selectTimer,
          resetTimer,
          } from '../app/store/timerSlice';
 
-import { selectPaints } from '../app/store/paintsSlice';
+import {loadPaints,
+        setRGBData,
+        sortPaints,
+        selectPaints } from '../app/store/paintsSlice';
+
+
+import {  } from '../app/store/paintsSlice';
+
+
 
 import styles from './FindPaints.module.css';
 
@@ -27,6 +35,15 @@ export function FindPaints() {
 
   const [timerRunning, setTimerRunning] = useState(false);
 
+  const paintDeloy = () => {
+    dispatch(loadPaints())
+    dispatch(setRGBData())
+    dispatch(sortPaints())
+    setTimerRunning(true)
+  }
+
+
+
   return (
     <div>
       {timerRunning &&
@@ -40,7 +57,7 @@ export function FindPaints() {
       <div className={styles.findPaintsBody}>
         <button
         className={styles.findButton}
-        onClick={() => setTimerRunning(true)}
+        onClick={() => paintDeloy()}
         >
           Find Paints
           </button>

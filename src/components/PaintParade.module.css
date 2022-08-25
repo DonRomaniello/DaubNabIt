@@ -13,32 +13,37 @@ body {
  /* height: 30vw; */
  border-radius: 3vw;
  overflow: hidden;
+ animation: swatchesEnterAnimation ease 1s;
+ animation-iteration-count: 1;
+ animation-fill-mode: forwards;
 }
 
+@keyframes swatchesEnterAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
 
 .swatch {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 6vw;
+  /* height: 6vw; */
   color: white;
+  animation: swatchEnterAnimation ease 200ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
-.alert-enter {
-  opacity: 0;
-  transform: scale(0.9);
-}
-.alert-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
-}
-.alert-exit {
-  opacity: 1;
-}
-.alert-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+@keyframes swatchEnterAnimation {
+  0% {
+      height: 0vw;
+  }
+  100% {
+      height: 6vw;
+  }
 }
 

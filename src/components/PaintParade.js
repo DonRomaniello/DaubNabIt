@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { CSSTransition } from 'react-transition-group';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectTimer } from '../app/store/timerSlice';
@@ -22,8 +20,11 @@ export function PaintParade(props) {
 
   const [opened, isOpened] = useState(true);
 
+
+
   return (
     <div>
+      {(timer > 0) &&
       <div className={styles.swatches}>
       {matches.slice(0,5).map((match, idx) => {
         if (idx < timer) {
@@ -39,8 +40,8 @@ export function PaintParade(props) {
         )
         }
       })}
-      {/* </CSSTransition> */}
       </div>
+    }
     </div>
   )
 

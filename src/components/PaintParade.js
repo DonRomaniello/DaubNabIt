@@ -24,6 +24,7 @@ export function PaintParade(props) {
 
   return (
     <div>
+      <div className={styles.swatches}>
       {matches.slice(0,5).map((match, idx) => {
         if (idx < timer) {
         return (
@@ -39,6 +40,7 @@ export function PaintParade(props) {
         }
       })}
       {/* </CSSTransition> */}
+      </div>
     </div>
   )
 

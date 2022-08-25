@@ -8,14 +8,20 @@ body {
   padding-top: 5vh;
 }
 
+.swatches {
+ width: 30vw;
+ /* height: 30vw; */
+ border-radius: 3vw;
+ overflow: hidden;
+}
+
+
 .swatch {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5vw;
-  border-radius: 10px;
+  height: 6vw;
   color: white;
-  /* -webkit-text-stroke: 1px white; */
 }
 
 .alert-enter {

@@ -1,0 +1,15 @@
+.context {
+  vertical-align: middle;
+}
+
+.gear {
+  size: 100px;
+  color: black;
+  opacity: .1;
+  transition: opacity 1s;
+}
+
+.gear:hover,
+.gear:focus {
+  opacity: 1;
+}

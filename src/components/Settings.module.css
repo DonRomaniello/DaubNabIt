@@ -1,12 +1,13 @@
 .context {
   vertical-align: middle;
+  padding-bottom: 5vh;
 }
 
 .gear {
   size: 100px;
   color: black;
   opacity: .1;
-  transition: opacity 1s;
+  transition: opacity .2s;
 }
 
 .gear:hover,

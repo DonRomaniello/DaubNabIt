@@ -35,7 +35,7 @@ export function PaintParade(props) {
           style={{
             background: match.paint.hex,
           }}>
-            {match.paint.name}: {match.closeness}
+            {match.paint.name}
           </div>
         )
         }

@@ -11,7 +11,7 @@ export function Settings() {
 
   return (
     <IconContext.Provider value={{ className: styles.context }}>
-    <BsGearFill className={styles.gear} size={gearSize}/>
+      <BsGearFill className={styles.gear} size={gearSize}/>
     </IconContext.Provider>
   )
 }

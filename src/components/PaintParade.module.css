@@ -12,7 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 5vw;
   border-radius: 10px;
   color: white;
   /* -webkit-text-stroke: 1px white; */

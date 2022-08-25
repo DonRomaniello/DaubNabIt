@@ -58,18 +58,18 @@ export function SinglePanel(props) {
             })}
           </div>
         </div>
-      <div className={styles.underHex}>
+      {/* <div className={styles.underHex}>
       Hex: {displayedHex.toUpperCase()}
       </div>
       <div className={styles.rgbHolder}>
       {Object.keys(rgb).map((channel) => {
         return (
         <div key={channel} className={styles.rgbElement}>
-          {channel} : {rgb[channel]}
+          {channel.slice(0, 1)} : {rgb[channel]}
         </div>
         )
       })}
-      </div>
+      </div> */}
       <PaintParade color={color} matches={matches}/>
     </div>
   )

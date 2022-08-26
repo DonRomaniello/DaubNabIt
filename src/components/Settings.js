@@ -6,7 +6,9 @@ import { selectBrands } from '../app/store/paintsSlice';
 
 import { IconContext } from 'react-icons';
 
-import { BsGearFill } from 'react-icons/bs';
+import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
+
+import { selectTimer } from '../app/store/timerSlice';
 
 import { SelectMenu } from './SelectMenu';
 
@@ -20,6 +22,8 @@ export function Settings() {
 
   const [brandsOpened, openBrands] = useState(false);
 
+  const { timer } = useSelector(selectTimer);
+
   const brands = useSelector(selectBrands);
 
   useEffect(() => {
@@ -28,7 +32,7 @@ export function Settings() {
     }
   }, [settingsOpened])
 
-  console.log(brands)
+  console.log(timer)
 
   return (
     <div className={styles.settingsRow}>
@@ -38,6 +42,11 @@ export function Settings() {
       size={gearSize}
       onClick={() => openSet(!settingsOpened)}
       />
+      {timer ?
+      <BsArrowRepeat
+      className={styles.gear}
+      size={gearSize}
+      /> : null}
       </IconContext.Provider>
       {settingsOpened &&
         <SelectMenu

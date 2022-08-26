@@ -9,9 +9,21 @@ const gearSize = '5vw';
 
 export function Settings() {
 
+  const [settingsOpened, openSet] = useState(false);
+
   return (
     <IconContext.Provider value={{ className: styles.context }}>
-      <BsGearFill className={styles.gear} size={gearSize}/>
+      <BsGearFill
+      className={styles.gear}
+      size={gearSize}
+      onClick={() => setInterval(openSet(!settingsOpened), 10)}
+      />
+      {settingsOpened &&
+      <div>
+        Opened.
+      </div>
+
+      }
     </IconContext.Provider>
   )
 }

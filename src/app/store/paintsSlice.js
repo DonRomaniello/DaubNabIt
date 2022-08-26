@@ -7,19 +7,13 @@ import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
 import { unzip } from 'fflate';
 
-let paints = []
-
 const _loadPaints = () => {
   const zipPaints = require('../../resources/allPaints.json.gz');
-
   let unzippedPaints = []
-
   unzip(zipPaints, (err, unzipped) => {
     unzippedPaints = unzipped;
   })
-
   return unzippedPaints
-
 }
 
 const _sortPaints = (paintA, paintB) => {
@@ -42,6 +36,18 @@ const _sortPaints = (paintA, paintB) => {
 
 const initialState = {
   paints: [],
+  brands: ['Avery',
+            'Behr',
+            'Benjamin-Moore',
+            'Colorhouse',
+            'Dunn-Edwards',
+            'Dutch',
+            'Farrow-Ball',
+            'HL',
+            'Kilz',
+            'PPG',
+            'Sherwin-Williams',
+            'Valspar'],
 }
 
 export const paintsSlice = createSlice({
@@ -63,5 +69,7 @@ export const paintsSlice = createSlice({
 export const { loadPaints, setRGBData, sortPaints } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
+
+export const selectBrands = (state) => state.paints.brands;
 
 export default paintsSlice.reducer;

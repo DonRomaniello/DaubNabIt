@@ -8,8 +8,9 @@ import { IconContext } from 'react-icons';
 
 import { BsGearFill } from 'react-icons/bs';
 
-import styles from './Settings.module.css';
+import { SelectMenu } from './SelectMenu';
 
+import styles from './Settings.module.css';
 
 const gearSize = '5vw';
 
@@ -39,27 +40,12 @@ export function Settings() {
       />
       </IconContext.Provider>
       {settingsOpened &&
-        <div>
-        <button
-        name="brand"
-        className={styles.selectMenu}
-        onClick={() => openBrands(!brandsOpened)}
-        >
-          Brand of Paint
-        </button>
-        {brandsOpened &&
-        brands.map((brand) => {
-          return (
-            <button
-            key={brand}
-            className={styles.selectMenu}>
-              {brand}
-            </button>
-          )
-        })
-        }
-       </div>
-
+        <SelectMenu
+        opened={brandsOpened}
+        openedFunction={openBrands}
+        contents={brands}
+        name={'Brand of Paint'}
+        / >
       }
       </div>
   )

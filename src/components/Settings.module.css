@@ -44,25 +44,3 @@
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1));
 }
 
-
-.findButton {
-  background-color: #ECF4FE;
-  border: 0px;
-  margin-bottom: 7px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 24px;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
-  transition: filter .2s;
-  font-family: "Gill Sans", sans-serif;
-}
-
-.findButton:hover {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1));
-}
-
-.findButtonClosed {
-  animation: buttonClosedAnimation ease 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}

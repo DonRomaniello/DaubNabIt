@@ -8,7 +8,7 @@
 .findButton {
   background-color: #ECF4FE;
   border: 0px;
-  margin: 10px;
+  margin-bottom: 7px;
   padding: 10px;
   border-radius: 5px;
   font-size: 24px;
@@ -22,5 +22,22 @@
 }
 
 .findButtonClosed {
+  animation: buttonClosedAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 
+
+@keyframes buttonClosedAnimation {
+ 0% {
+     opacity: 1;
+ }
+ 50% {
+    opacity: 0;
+    font-size: 24px;
+  }
+  100% {
+  font-size: 0px;
+  opacity: 0;
+}
 }

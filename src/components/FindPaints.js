@@ -35,7 +35,7 @@ export function FindPaints() {
 
   const [timerRunning, setTimerRunning] = useState(false);
 
-  const paintDeloy = () => {
+  const paintDeploy = () => {
     dispatch(loadPaints()) // This reduces blocking time 18x
     dispatch(setRGBData())
     dispatch(sortPaints())
@@ -54,8 +54,8 @@ export function FindPaints() {
        />}
       <div className={styles.findPaintsBody}>
         <button
-        className={styles.findButton}
-        onClick={() => paintDeloy()}
+        className={`${styles.findButton} ${timerRunning && styles.findButtonClosed}`}
+        onClick={() => paintDeploy()}
         >
           Find Paints
           </button>

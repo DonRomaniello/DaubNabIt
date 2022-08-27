@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import Countdown,
-        {CountdownApi}
-         from 'react-countdown';
+import Countdown from 'react-countdown';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectTimer,
          incrementTimer,
-         resetTimer,
          } from '../app/store/timerSlice';
 
 import {loadPaints,

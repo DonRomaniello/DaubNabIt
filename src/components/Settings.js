@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons';
 
 import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
 
-import { selectTimer } from '../app/store/timerSlice';
+import { selectTimer, resetTimer } from '../app/store/timerSlice';
 
 import { reGenerate } from '../app/store/panelsSlice';
 
@@ -36,6 +36,12 @@ export function Settings() {
     }
   }, [settingsOpened])
 
+  const reRoll = () => {
+
+    dispatch(reGenerate())
+    dispatch(resetTimer())
+  }
+
   return (
     <div className={styles.settingsRow}>
     <IconContext.Provider value={{ className: styles.context }}>
@@ -48,7 +54,7 @@ export function Settings() {
       <BsArrowRepeat
       className={styles.gear}
       size={gearSize}
-      onClick={() => dispatch(reGenerate())}
+      onClick={() => reRoll()}
       /> : null}
       </IconContext.Provider>
       {settingsOpened &&

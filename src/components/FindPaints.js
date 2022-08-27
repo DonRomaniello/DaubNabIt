@@ -9,7 +9,8 @@ import { incrementTimer } from '../app/store/timerSlice';
 import {
         loadPaints,
         setRGBData,
-        selectPaints
+        selectPaints,
+        brandSelected,
       } from '../app/store/paintsSlice';
 
 import { findMatches } from '../app/store/panelsSlice';
@@ -22,6 +23,8 @@ export function FindPaints() {
 
   const paints = useSelector(selectPaints);
 
+  const brand = useSelector(brandSelected);
+
   const msPerPaint = 200;
 
   const [timerRunning, setTimerRunning] = useState(false);
@@ -29,7 +32,7 @@ export function FindPaints() {
   const findPaints = () => {
     // dispatch(loadPaints())
     // dispatch(setRGBData())
-    dispatch(findMatches(paints))
+    dispatch(findMatches({ paints, brand }))
     setTimerRunning(true);
   }
 

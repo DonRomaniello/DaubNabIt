@@ -9,17 +9,27 @@ const closenessCalculation = (target, match) => {
 }
 
 
-export const _searchPaints = (color, paints) => {
-
-  // console.log(color, paints)
+export const _searchPaints = (color, paints, brand) => {
 
   const matches = []
-  paints.forEach((paint) => {
-    if (!paint.rgb) {
-      paint.rgb = _setRGBData(paint.hex)
-    }
-    const closeness = closenessCalculation(color, paint)
-    matches.push({ paint, closeness })
-  })
+
+  if (brand == 'all') {
+    paints.forEach((paint) => {
+      if (!paint.rgb) {
+        paint.rgb = _setRGBData(paint.hex)
+      }
+      const closeness = closenessCalculation(color, paint)
+      matches.push({ paint, closeness })
+    })
+  } else {
+    paints.filter((paint) => (paint.brand == brand)).forEach((paint) => {
+      if (!paint.rgb) {
+        paint.rgb = _setRGBData(paint.hex)
+      }
+      const closeness = closenessCalculation(color, paint)
+      matches.push({ paint, closeness })
+    })
+  }
+
   return matches.sort((a, b) => a.closeness - b.closeness).slice(0, 20)
 }

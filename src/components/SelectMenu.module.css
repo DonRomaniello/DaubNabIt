@@ -1,14 +1,15 @@
 .selectMenu {
   background-color: #ECF4FE;
-  padding: 10px;
+  padding: 7px;
   border-radius: 5px;
   border: 0;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
-  /* height: 7vh; */
+  filter: drop-shadow(0px 0px 1px rgba(0,0,0,.5));
+  transition: filter .2s;
   font-size: 24px;
   font-family: "Gill Sans", sans-serif;
+  appearance: none;
 }
 
 .selectMenu:hover {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1));
+  filter: drop-shadow(0 0px 1px rgba(0, 0, 0, 1));
 }

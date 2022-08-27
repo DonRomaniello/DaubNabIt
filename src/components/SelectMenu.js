@@ -1,30 +1,27 @@
 import React from 'react';
 
-import styles from './Settings.module.css';
+import styles from './SelectMenu.module.css';
 
 export function SelectMenu(props) {
 
-  const {opened, openedFunction, contents, name} = props;
+  const {contents, name} = props;
 
   return (
-        <div>
-        <button
-        className={styles.selectMenu}
-        onClick={() => openedFunction(!opened)}
+        <div
+        // className={styles.selectMenu}
         >
-          {name}
-        </button>
-        {opened &&
-        contents.map((content) => {
-          return (
-            <button
-            key={content}
-            className={styles.selectMenu}>
-              {content}
-            </button>
-          )
-        })
-        }
+        <select className={styles.selectMenu}>
+          <option value="">{name}</option>
+          {contents.map((content) => {
+            return (
+              <option
+               key={content}
+               value={content.toLowerCase()}>
+                {content}
+              </option>
+            )
+          })}
+        </select>
        </div>
   )
 }

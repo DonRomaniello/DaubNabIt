@@ -24,17 +24,9 @@ export function Settings() {
 
   const [settingsOpened, openSet] = useState(false);
 
-  const [brandsOpened, openBrands] = useState(false);
-
   const { timer } = useSelector(selectTimer);
 
   const brands = useSelector(selectBrands);
-
-  useEffect(() => {
-    if (!settingsOpened) {
-      openBrands(false)
-    }
-  }, [settingsOpened])
 
   const reRoll = () => {
 
@@ -59,8 +51,6 @@ export function Settings() {
       </IconContext.Provider>
       {settingsOpened &&
         <SelectMenu
-        opened={brandsOpened}
-        openedFunction={openBrands}
         contents={brands}
         name={'Brand of Paint'}
         / >

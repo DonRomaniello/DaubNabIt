@@ -37,7 +37,6 @@ export const panelsSlice = createSlice({
     },
     findMatches: (state, action) => {
       state.colors.forEach((color) => {
-        console.log('happens', action.payload)
         color.matches = _searchPaints(color.rgb, action.payload)
       })
     },

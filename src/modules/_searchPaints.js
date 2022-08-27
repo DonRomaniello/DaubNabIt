@@ -21,5 +21,5 @@ export const _searchPaints = (color, paints) => {
     const closeness = closenessCalculation(color, paint)
     matches.push({ paint, closeness })
   })
-  return matches.sort((a, b) => a.closeness - b.closeness)
+  return matches.sort((a, b) => a.closeness - b.closeness).slice(0, 20)
 }

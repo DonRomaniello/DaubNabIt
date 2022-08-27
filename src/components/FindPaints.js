@@ -4,16 +4,17 @@ import Countdown from 'react-countdown';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectTimer,
-         incrementTimer,
-         } from '../app/store/timerSlice';
+import { incrementTimer } from '../app/store/timerSlice';
 
 import {
+        loadPaints,
         setRGBData,
-        selectPaints } from '../app/store/paintsSlice';
+        selectPaints
+      } from '../app/store/paintsSlice';
+
+import { findMatches } from '../app/store/panelsSlice';
 
 import styles from './FindPaints.module.css';
-import { findMatches } from '../app/store/panelsSlice';
 
 export function FindPaints() {
 
@@ -26,15 +27,23 @@ export function FindPaints() {
   const [timerRunning, setTimerRunning] = useState(false);
 
   const findPaints = () => {
-    console.log(paints.length)
-    dispatch(findMatches('hee'))
+    // dispatch(loadPaints())
+    // dispatch(setRGBData())
+    dispatch(findMatches(paints))
     setTimerRunning(true);
   }
 
   useEffect(() => {
-    // dispatch(loadPaints()) // This reduces blocking time 18x
+    dispatch(loadPaints())
     dispatch(setRGBData())
   }, [dispatch])
+
+
+  // useEffect(() => {
+  //   if (paints.length) {
+  //     dispatch(findMatches(paints))
+  //   }
+  // }, [paints])
 
   return (
     <div>

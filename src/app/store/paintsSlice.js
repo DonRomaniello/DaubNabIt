@@ -7,14 +7,22 @@ import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
 import { unzip } from 'fflate';
 
-const loadPaints = createAsyncThunk('paints/loadPaitsStatus',
-  async() => {
-  const zipPaints = require('../../resources/allPaints.json.gz');
-  const unzippedPaints = await unzip(zipPaints, (err, unzipped) => {
-    return unzipped
-  })
-  return unzippedPaints
-})
+// const _loadPaints = () => {
+//   const zipPaints = require('../../resources/allPaints.json.gz');
+//   let unzippedPaints = []
+//   unzip(zipPaints, (err, unzipped) => {
+//     console.log(err)
+//     unzippedPaints = unzipped;
+//   })
+//   console.log('these pains', unzippedPaints)
+//   return unzippedPaints
+// }
+
+const _loadPaints = () => {
+  const paintFile = require('../../resources/allPaints.json');
+  return paintFile
+}
+
 
 const _sortPaints = (paintA, paintB) => {
   if (paintA.rgb.Red > paintB.rgb.Red) {
@@ -58,15 +66,13 @@ export const paintsSlice = createSlice({
     setRGBData: (state) => {
       state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
+    loadPaints: (state) => {
+      state.paints = (_loadPaints());
+    }
   },
-  extraReducers: (builder) => {
-    builder.addCase(loadPaints.fulfilled, (state, action) => {
-      state.paints.push(action.payload)
-    })
-  }
 });
 
-export const { setRGBData } = paintsSlice.actions;
+export const { loadPaints, setRGBData } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 

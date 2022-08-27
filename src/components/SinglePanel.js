@@ -33,7 +33,6 @@ export function SinglePanel(props) {
 
   useEffect(() => {
     setGrid(_createTintGrid(range))
-    dispatch(findMatches())
   }, [range])
 
   return (

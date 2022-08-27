@@ -4,8 +4,6 @@ import { useSelector, dispatch, useDispatch } from 'react-redux';
 
 import { selectPanels } from '../app/store/panelsSlice';
 
-
-
 import { SinglePanel } from './SinglePanel';
 
 import styles from './Panels.module.css';

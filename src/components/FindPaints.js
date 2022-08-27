@@ -8,17 +8,12 @@ import { selectTimer,
          incrementTimer,
          } from '../app/store/timerSlice';
 
-import {loadPaints,
+import {
         setRGBData,
-        sortPaints,
         selectPaints } from '../app/store/paintsSlice';
 
-
-import {  } from '../app/store/paintsSlice';
-
-
-
 import styles from './FindPaints.module.css';
+import { findMatches } from '../app/store/panelsSlice';
 
 export function FindPaints() {
 
@@ -26,18 +21,20 @@ export function FindPaints() {
 
   const paints = useSelector(selectPaints);
 
-  const time = useSelector(selectTimer);
-
   const msPerPaint = 200;
 
   const [timerRunning, setTimerRunning] = useState(false);
 
-  const paintDeploy = () => {
-    dispatch(loadPaints()) // This reduces blocking time 18x
-    dispatch(setRGBData())
-    dispatch(sortPaints())
-    setTimerRunning(true)
+  const findPaints = () => {
+    console.log(paints.length)
+    dispatch(findMatches('hee'))
+    setTimerRunning(true);
   }
+
+  useEffect(() => {
+    // dispatch(loadPaints()) // This reduces blocking time 18x
+    dispatch(setRGBData())
+  }, [dispatch])
 
   return (
     <div>
@@ -52,7 +49,7 @@ export function FindPaints() {
       <div className={styles.findPaintsBody}>
         <button
         className={`${styles.findButton} ${timerRunning && styles.findButtonClosed}`}
-        onClick={() => paintDeploy()}
+        onClick={() => findPaints()}
         >
           Find Paints
           </button>

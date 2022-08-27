@@ -20,13 +20,18 @@ export function PaintParade(props) {
 
   const [opened, isOpened] = useState(true);
 
+  const copyInfo = (match) => {
+    // console.log(match)
+    const stringToCopy = '"' + match.paint.name + '" ' + match.paint.brand
+    navigator.clipboard.writeText(stringToCopy);
+  }
 
 
   return (
     <div>
       {(timer > 0) &&
       <div className={styles.swatches}>
-      {matches.slice(0,5).map((match, idx) => {
+      {matches?.slice(0,5).map((match, idx) => {
         if (idx < timer) {
         return (
           <div
@@ -34,7 +39,9 @@ export function PaintParade(props) {
           className={styles.swatch}
           style={{
             background: match.paint.hex,
-          }}>
+          }}
+          onClick={() => copyInfo(match)}
+          >
             {match.paint.name}
           </div>
         )

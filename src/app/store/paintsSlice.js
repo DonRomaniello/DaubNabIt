@@ -1,5 +1,5 @@
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { _setRGBData } from '../../modules/_setRGBData';
 
@@ -7,14 +7,14 @@ import { _setRGBRatios } from '../../modules/_setRGBRatios';
 
 import { unzip } from 'fflate';
 
-const _loadPaints = () => {
+const loadPaints = createAsyncThunk('paints/loadPaitsStatus',
+  async() => {
   const zipPaints = require('../../resources/allPaints.json.gz');
-  let unzippedPaints = []
-  unzip(zipPaints, (err, unzipped) => {
-    unzippedPaints = unzipped;
+  const unzippedPaints = await unzip(zipPaints, (err, unzipped) => {
+    return unzipped
   })
   return unzippedPaints
-}
+})
 
 const _sortPaints = (paintA, paintB) => {
   if (paintA.rgb.Red > paintB.rgb.Red) {
@@ -36,6 +36,7 @@ const _sortPaints = (paintA, paintB) => {
 
 const initialState = {
   paints: [],
+  loading: 'idle',
   brands: ['Avery',
             'Behr',
             'Benjamin-Moore',
@@ -54,19 +55,18 @@ export const paintsSlice = createSlice({
   name: 'paints',
   initialState,
   reducers: {
-    loadPaints: (state) => {
-      state.paints = _loadPaints()
-    },
     setRGBData: (state) => {
       state.paints = state.paints.map((paint) => { return { ...paint, rgb : _setRGBData(paint.hex)}});
     },
-    sortPaints: (state) => {
-      state.paints = state.paints.sort(_sortPaints)
-    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(loadPaints.fulfilled, (state, action) => {
+      state.paints.push(action.payload)
+    })
   }
 });
 
-export const { loadPaints, setRGBData, sortPaints } = paintsSlice.actions;
+export const { setRGBData } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 

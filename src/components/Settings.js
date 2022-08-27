@@ -16,7 +16,7 @@ import { SelectMenu } from './SelectMenu';
 
 import styles from './Settings.module.css';
 
-const gearSize = '5vw';
+const gearSize = '60px';
 
 export function Settings() {
 
@@ -29,7 +29,6 @@ export function Settings() {
   const brands = useSelector(selectBrands);
 
   const reRoll = () => {
-
     dispatch(reGenerate())
     dispatch(resetTimer())
   }

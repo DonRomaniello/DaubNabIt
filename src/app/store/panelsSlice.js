@@ -4,8 +4,6 @@ import { _setRGBData } from '../../modules/_setRGBData';
 
 import { _searchPaints } from '../../modules/_searchPaints';
 
-const paints = require('../../resources/json/behr.json');
-
 const randomPanel = () => {
   const randHex = () => {
     return Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
@@ -18,7 +16,6 @@ const randomPanel = () => {
   return {
     color,
     rgb,
-    matches: _searchPaints(rgb, paints),
   }
 }
 
@@ -36,11 +33,12 @@ export const panelsSlice = createSlice({
   initialState,
   reducers: {
     reGenerate: (state) => {
-      console.log('run')
       state.colors = initializer();
     },
     findMatches: (state, action) => {
       state.colors.forEach((color) => {
+        console.log('happens', action.payload)
+        color.matches = _searchPaints(color.rgb, action.payload)
       })
     },
   }

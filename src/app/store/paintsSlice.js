@@ -1,5 +1,5 @@
 
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { _setRGBData } from '../../modules/_setRGBData';
 
@@ -44,8 +44,9 @@ const _sortPaints = (paintA, paintB) => {
 
 const initialState = {
   paints: [],
-  loading: 'idle',
-  brands: ['Avery',
+  selectedBrand: 'all',
+  brands: [ 'All Brands',
+            'Avery',
             'Behr',
             'Benjamin-Moore',
             'Colorhouse',
@@ -68,11 +69,15 @@ export const paintsSlice = createSlice({
     },
     loadPaints: (state) => {
       state.paints = (_loadPaints());
+    },
+    setBrand: (state, action) => {
+      console.log(action.payload)
+      state.selectedBrand = action.payload
     }
   },
 });
 
-export const { loadPaints, setRGBData } = paintsSlice.actions;
+export const { loadPaints, setBrand, setRGBData } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 

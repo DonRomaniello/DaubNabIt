@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectBrands } from '../app/store/paintsSlice';
+import { selectBrands,
+          setBrand } from '../app/store/paintsSlice';
 
 import { IconContext } from 'react-icons';
 
@@ -50,8 +51,10 @@ export function Settings() {
       </IconContext.Provider>
       {settingsOpened &&
         <SelectMenu
+        value={'all'}
         contents={brands}
         name={'Brand of Paint'}
+        setFunction={setBrand}
         / >
       }
       </div>

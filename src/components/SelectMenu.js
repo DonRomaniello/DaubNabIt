@@ -2,16 +2,24 @@ import React from 'react';
 
 import styles from './SelectMenu.module.css';
 
+import { useDispatch } from 'react-redux';
+
 export function SelectMenu(props) {
 
-  const {contents, name} = props;
+  const {contents, name, value, setFunction} = props;
+
+  const dispatch = useDispatch();
 
   return (
         <div
         // className={styles.selectMenu}
         >
-        <select className={styles.selectMenu}>
-          <option value="">{name}</option>
+        <select
+        id={name.split(' ').join('').toLowerCase()}
+        className={styles.selectMenu}
+        onChange={(event) => dispatch(setFunction(event.target.value))}
+        >
+          <option value={value}>{name}</option>
           {contents.map((content) => {
             return (
               <option

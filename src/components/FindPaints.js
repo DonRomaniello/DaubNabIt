@@ -39,12 +39,6 @@ export function FindPaints() {
   }, [dispatch])
 
 
-  // useEffect(() => {
-  //   if (paints.length) {
-  //     dispatch(findMatches(paints))
-  //   }
-  // }, [paints])
-
   return (
     <div>
       {timerRunning &&

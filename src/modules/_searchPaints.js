@@ -12,7 +12,10 @@ const closenessCalculation = (target, match) => {
 export const _searchPaints = (color, paints) => {
   const matches = []
   paints.forEach((paint) => {
-    paint.rgb = _setRGBData(paint.hex)
+    console.log(paint)
+    if (!paint.rgb) {
+      paint.rgb = _setRGBData(paint.hex)
+    }
     const closeness = closenessCalculation(color, paint)
     matches.push({ paint, closeness })
   })

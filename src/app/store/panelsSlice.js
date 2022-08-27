@@ -23,7 +23,6 @@ const randomPanel = () => {
 }
 
 const initializer = () => {
-
   return [randomPanel(),
           randomPanel(),
           randomPanel()]
@@ -37,6 +36,7 @@ export const panelsSlice = createSlice({
   initialState,
   reducers: {
     reGenerate: (state) => {
+      console.log('run')
       state.colors = initializer();
     },
     findMatches: (state, action) => {

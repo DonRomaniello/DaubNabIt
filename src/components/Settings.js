@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { selectBrands } from '../app/store/paintsSlice';
 
@@ -10,6 +10,8 @@ import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
 
 import { selectTimer } from '../app/store/timerSlice';
 
+import { reGenerate } from '../app/store/panelsSlice';
+
 import { SelectMenu } from './SelectMenu';
 
 import styles from './Settings.module.css';
@@ -17,6 +19,8 @@ import styles from './Settings.module.css';
 const gearSize = '5vw';
 
 export function Settings() {
+
+  const dispatch = useDispatch();
 
   const [settingsOpened, openSet] = useState(false);
 
@@ -32,8 +36,6 @@ export function Settings() {
     }
   }, [settingsOpened])
 
-  console.log(timer)
-
   return (
     <div className={styles.settingsRow}>
     <IconContext.Provider value={{ className: styles.context }}>
@@ -46,6 +48,7 @@ export function Settings() {
       <BsArrowRepeat
       className={styles.gear}
       size={gearSize}
+      onClick={() => dispatch(reGenerate())}
       /> : null}
       </IconContext.Provider>
       {settingsOpened &&

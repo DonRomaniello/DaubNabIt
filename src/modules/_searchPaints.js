@@ -9,7 +9,9 @@ const closenessCalculation = (target, match) => {
 }
 
 
-export const _searchPaints = (color, paints, brand) => {
+export const _searchPaints = (color, payload) => {
+
+  const {paints, brand} = payload
 
   const matches = []
 

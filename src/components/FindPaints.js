@@ -7,10 +7,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { incrementTimer, resetTimer } from '../app/store/timerSlice';
 
 import {
+        currentBrand,
         loadPaints,
         setRGBData,
         selectPaints,
-        brandSelected,
       } from '../app/store/paintsSlice';
 
 import { setParadeOpen } from '../app/store/panelsSlice';
@@ -25,7 +25,7 @@ export function FindPaints() {
 
   const paints = useSelector(selectPaints);
 
-  const brand = useSelector(brandSelected);
+  const brand = useSelector(currentBrand);
 
   const msPerPaint = 200;
 

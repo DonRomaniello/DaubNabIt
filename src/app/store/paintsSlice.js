@@ -83,6 +83,6 @@ export const selectPaints = (state) => state.paints.paints;
 
 export const selectBrands = (state) => state.paints.brands;
 
-export const brandSelected = (state) => state.paints.selectedBrand;
+export const currentBrand = (state) => state.paints.selectedBrand;
 
 export default paintsSlice.reducer;

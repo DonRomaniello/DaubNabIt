@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectBrands,
+import {
+        currentBrand,
+        selectBrands,
+        selectPaints,
           setBrand } from '../app/store/paintsSlice';
 
 import { IconContext } from 'react-icons';
@@ -11,7 +14,7 @@ import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
 
 import { selectTimer, resetTimer } from '../app/store/timerSlice';
 
-import { paradeIsOpened, reGenerate } from '../app/store/panelsSlice';
+import { paradeIsOpened, reGenerate, findMatches } from '../app/store/panelsSlice';
 
 import { SelectMenu } from './SelectMenu';
 
@@ -31,9 +34,15 @@ export function Settings() {
 
   const brands = useSelector(selectBrands);
 
+  const brand = useSelector(currentBrand)
+
+  const paints = useSelector(selectPaints)
+
   const reRoll = () => {
     dispatch(reGenerate())
+    dispatch(findMatches({ paints, brand }))
     dispatch(resetTimer())
+
   }
 
   return (
@@ -44,12 +53,6 @@ export function Settings() {
       size={gearSize}
       onClick={() => openSet(!settingsOpened)}
       />
-      {timer ?
-      <BsArrowRepeat
-      className={styles.gear}
-      size={gearSize}
-      onClick={() => reRoll()}
-      /> : null}
       </IconContext.Provider>
       {settingsOpened &&
         <SelectMenu
@@ -59,6 +62,12 @@ export function Settings() {
         setFunction={setBrand}
         / >
       }
+      {timer || settingsOpened ?
+      <BsArrowRepeat
+      className={styles.gear}
+      size={gearSize}
+      onClick={() => reRoll()}
+      /> : null}
       </div>
   )
 }

@@ -72,7 +72,7 @@ export function Settings() {
         setFunction={setBrand}
         / >
       }
-      {timer || settingsOpened ?
+      {(settingsOpened || paradeOpened) ?
       <BsArrowRepeat
       className={styles.gear}
       size={gearSize}

@@ -45,6 +45,7 @@ const _loadPaints = () => {
 const initialState = {
   paints: [],
   selectedBrand: 'all',
+  mixRatio: 1,
   brands: [ 'All Brands',
             'Avery',
             'Behr',
@@ -73,16 +74,21 @@ export const paintsSlice = createSlice({
     setBrand: (state, action) => {
       console.log(action.payload)
       state.selectedBrand = action.payload
+    },
+    setMixRatio: (state, action) => {
+      state.mixRatio = action.payload;
     }
   },
 });
 
-export const { loadPaints, setBrand, setRGBData } = paintsSlice.actions;
+export const { loadPaints, setBrand, setMixRatio, setRGBData } = paintsSlice.actions;
 
 export const selectPaints = (state) => state.paints.paints;
 
 export const selectBrands = (state) => state.paints.brands;
 
 export const currentBrand = (state) => state.paints.selectedBrand;
+
+export const selectMixRation = (state) => state.paints.mixRatio;
 
 export default paintsSlice.reducer;

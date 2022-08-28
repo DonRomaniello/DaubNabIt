@@ -4,21 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { selectTimer } from '../app/store/timerSlice';
 
-import { selectPaints } from '../app/store/paintsSlice';
-
 import styles from './PaintParade.module.css'
 
 export function PaintParade(props) {
 
   const { color, matches } = props;
 
-  const dispatch = useDispatch();
-
-  const paints = useSelector(selectPaints);
-
   const { timer } = useSelector(selectTimer);
-
-  const [opened, isOpened] = useState(true);
 
   const copyInfo = (match) => {
     // console.log(match)
@@ -30,7 +22,10 @@ export function PaintParade(props) {
   return (
     <div>
       {(timer > 0) &&
-      <div className={styles.swatches}>
+      <div
+      // className={styles.swatches}
+      className={styles.swatches}
+      >
       {matches?.slice(0,5).map((match, idx) => {
         if (idx < timer) {
         return (

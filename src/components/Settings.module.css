@@ -5,6 +5,12 @@
   flex-direction: row;
 }
 
+.settingsRowParadeOpened {
+  position: sticky;
+  top: 30px;
+  width: 100vw;
+}
+
 .settingsRow > * {
   margin-right: 10px;
   margin-left: 10px;

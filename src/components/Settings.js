@@ -11,7 +11,7 @@ import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
 
 import { selectTimer, resetTimer } from '../app/store/timerSlice';
 
-import { reGenerate } from '../app/store/panelsSlice';
+import { paradeIsOpened, reGenerate } from '../app/store/panelsSlice';
 
 import { SelectMenu } from './SelectMenu';
 
@@ -25,6 +25,8 @@ export function Settings() {
 
   const [settingsOpened, openSet] = useState(false);
 
+  const paradeOpened = useSelector(paradeIsOpened)
+
   const { timer } = useSelector(selectTimer);
 
   const brands = useSelector(selectBrands);
@@ -35,7 +37,7 @@ export function Settings() {
   }
 
   return (
-    <div className={styles.settingsRow}>
+    <div className={`${styles.settingsRow} + ' ' + ${styles.settingsRowParadeOpened}`}>
     <IconContext.Provider value={{ className: styles.context }}>
       <BsGearFill
       className={styles.gear}

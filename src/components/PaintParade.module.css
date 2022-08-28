@@ -1,3 +1,7 @@
+:root {
+  --swatch-height: 6vw
+}
+
 body {
   align-content: center;
   align-items: center;
@@ -9,8 +13,8 @@ body {
 }
 
 .swatches {
+ margin-top: 2.5vh;
  width: 30vw;
- /* height: 30vw; */
  border-radius: 3vw;
  overflow: hidden;
  animation: swatchesEnterAnimation ease 1s;
@@ -18,6 +22,10 @@ body {
  animation-fill-mode: forwards;
  font-family: "Gill Sans", sans-serif;
  font-size: 1.2em;
+}
+
+.swatchesOpened {
+  height: 30vw;
 }
 
 @keyframes swatchesEnterAnimation {
@@ -44,7 +52,7 @@ body {
       height: 0vw;
   }
   100% {
-      height: 6vw;
+      height: var(--swatch-height);
   }
 }
 

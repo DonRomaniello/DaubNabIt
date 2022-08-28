@@ -13,6 +13,8 @@ import {
         brandSelected,
       } from '../app/store/paintsSlice';
 
+import { setParadeOpen } from '../app/store/panelsSlice';
+
 import { findMatches } from '../app/store/panelsSlice';
 
 import styles from './FindPaints.module.css';
@@ -31,6 +33,7 @@ export function FindPaints() {
 
   const findPaints = () => {
     dispatch(findMatches({ paints, brand }))
+    dispatch(setParadeOpen())
     setTimerRunning(true);
   }
 

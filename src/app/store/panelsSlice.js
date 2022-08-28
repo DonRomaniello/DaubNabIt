@@ -27,6 +27,7 @@ const initializer = () => {
 
 const initialState = {
   colors: initializer(),
+  openedParade: false,
 }
 export const panelsSlice = createSlice({
   name: 'panels',
@@ -40,11 +41,16 @@ export const panelsSlice = createSlice({
         color.matches = _searchPaints(color.rgb, action.payload)
       })
     },
+    setParadeOpen: (state) => {
+      state.openedParade = true;
+    }
   }
 });
 
-export const { reGenerate, findMatches } = panelsSlice.actions;
+export const { reGenerate, findMatches, setParadeOpen } = panelsSlice.actions;
 
 export const selectPanels = (state) => state.panels.colors;
+
+export const paradeIsOpened = (state) => state.panels.openedParade;
 
 export default panelsSlice.reducer;

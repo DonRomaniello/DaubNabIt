@@ -3,19 +3,21 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  padding-bottom: 25px;
 }
 
 .settingsRowParadeOpened {
-  position: fixed;
-  bottom: 5vw;
+  position: absolute;
+  top: 70vw;
   width: 100vw;
 }
+
+"Purple Gala" valspar
 
 .settingsRow > * {
   margin-right: 10px;
   margin-left: 10px;
 }
-
 
 .context {
   vertical-align: middle;

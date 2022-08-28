@@ -6,15 +6,26 @@ import {
         currentBrand,
         selectBrands,
         selectPaints,
-          setBrand } from '../app/store/paintsSlice';
+        setBrand
+        } from '../app/store/paintsSlice';
 
 import { IconContext } from 'react-icons';
 
-import { BsArrowRepeat, BsGearFill } from 'react-icons/bs';
+import {
+        BsArrowRepeat,
+        BsGearFill
+        } from 'react-icons/bs';
 
-import { selectTimer, resetTimer } from '../app/store/timerSlice';
+import {
+        selectTimer,
+        resetTimer
+         } from '../app/store/timerSlice';
 
-import { paradeIsOpened, reGenerate, findMatches } from '../app/store/panelsSlice';
+import {
+        paradeIsOpened,
+        reGenerate,
+        findMatches
+        } from '../app/store/panelsSlice';
 
 import { SelectMenu } from './SelectMenu';
 
@@ -28,25 +39,24 @@ export function Settings() {
 
   const [settingsOpened, openSet] = useState(false);
 
-  const paradeOpened = useSelector(paradeIsOpened)
+  const paradeOpened = useSelector(paradeIsOpened);
 
   const { timer } = useSelector(selectTimer);
 
   const brands = useSelector(selectBrands);
 
-  const brand = useSelector(currentBrand)
+  const brand = useSelector(currentBrand);
 
-  const paints = useSelector(selectPaints)
+  const paints = useSelector(selectPaints);
 
   const reRoll = () => {
     dispatch(reGenerate())
     dispatch(findMatches({ paints, brand }))
     dispatch(resetTimer())
-
   }
 
   return (
-    <div className={`${styles.settingsRow} + ' ' + ${styles.settingsRowParadeOpened}`}>
+    <div className={`${styles.settingsRow} + ' ' + ${paradeOpened && styles.settingsRowParadeOpened}`}>
     <IconContext.Provider value={{ className: styles.context }}>
       <BsGearFill
       className={styles.gear}

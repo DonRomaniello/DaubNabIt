@@ -22,9 +22,9 @@ const _makeHex = (rgbObject) => {
     }
   }
 
-  const r = bandPass(rgbObject.Red).toString(16)
-  const g = bandPass(rgbObject.Green).toString(16)
-  const b = bandPass(rgbObject.Blue).toString(16)
+  const r = ('00' + bandPass(rgbObject.Red).toString(16)).slice(-2)
+  const g = ('00' + bandPass(rgbObject.Green).toString(16)).slice(-2)
+  const b = ('00' + bandPass(rgbObject.Blue).toString(16)).slice(-2)
 
   const color = '#' + r + g + b
   return color;
@@ -64,7 +64,7 @@ fileList.forEach((fileName) => {
 
     masterPaints = [...masterPaints, ...paints]
 
-    fs.writeFileSync(testFolder + '/allPaints.json', JSON.stringify(masterPaints, null, '\t'))
+    fs.writeFileSync(testFolder + '/ballPaints.json', JSON.stringify(masterPaints, null, '\t'))
 
   });
 })

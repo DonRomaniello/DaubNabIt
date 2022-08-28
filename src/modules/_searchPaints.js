@@ -15,7 +15,7 @@ export const _searchPaints = (color, payload) => {
 
   const matches = []
 
-  if (brand == 'all' || 'all brands') {
+  if (brand == 'all' || brand == 'all brands') {
     paints.forEach((paint) => {
       if (!paint.rgb) {
         paint.rgb = _setRGBData(paint.hex)

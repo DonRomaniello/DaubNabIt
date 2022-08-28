@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, dispatch } from 'react-redux';
 
 import {  reGenerate,
-          findMatches
+          findMatches,
+          replacePanel
          } from '../app/store/panelsSlice';
-
-import { _makeHex } from '../modules/_makeHex';
 
 import { _createTintGrid } from '../modules/_createTintGrid';
 
@@ -18,13 +17,13 @@ export function SinglePanel(props) {
 
   const { color, rgb, matches, textBlack } = props.panel
 
+  const { idx } = props
+
   const dispatch = useDispatch();
 
   const [range, setRange] = useState(0);
 
   const [grid, setGrid] = useState(_createTintGrid(range))
-
-  const [displayedHex, setDisplayedHex] = useState(color)
 
   const applyTint = (tint) => {
     let rgbTinted = `rgb(${tint.Red + rgb.Red}, ${tint.Green + rgb.Green}, ${tint.Blue + rgb.Blue})`
@@ -35,12 +34,19 @@ export function SinglePanel(props) {
     setGrid(_createTintGrid(range))
   }, [range])
 
+  const changeColor = () => {
+    let replacer = '#7E737D'
+    console.log(idx)
+    dispatch(replacePanel({idx, hex: replacer}))
+  }
+
   return (
     <div>
       <div className={styles.colorBar}
         style={{
           background: color,
         }}
+        onClick={() => changeColor()}
         >
           <div className={styles.gridContainer} >
             {grid.map((tint) => {
@@ -49,26 +55,10 @@ export function SinglePanel(props) {
                 style={{
                   background: applyTint(tint),
                 }}
-                onMouseEnter={() => setDisplayedHex(_makeHex(
-                  {Red: tint.Red + rgb.Red,
-                  Green: tint.Green + rgb.Green,
-                  Blue: tint.Blue + rgb.Blue}))}
                 />)
             })}
           </div>
         </div>
-      {/* <div className={styles.underHex}>
-      Hex: {displayedHex.toUpperCase()}
-      </div>
-      <div className={styles.rgbHolder}>
-      {Object.keys(rgb).map((channel) => {
-        return (
-        <div key={channel} className={styles.rgbElement}>
-          {channel.slice(0, 1)} : {rgb[channel]}
-        </div>
-        )
-      })}
-      </div> */}
       <PaintParade
       color={color}
       matches={matches}

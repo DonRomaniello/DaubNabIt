@@ -15,7 +15,7 @@ export function Panels() {
   return (
     <div className={styles.row}>
       {panels.map((panel, idx) => {
-        return <SinglePanel key={panel.color + idx} panel={panel}/>
+        return <SinglePanel key={panel.color + idx} panel={panel} idx={idx}/>
       })}
     </div>
   );

@@ -5,6 +5,17 @@ import { _setRGBData } from '../../modules/_setRGBData';
 import { _searchPaints } from '../../modules/_searchPaints';
 import { _getVisibility } from '../../modules/_getVisibility';
 
+const _acceptHex = (hex) => {
+
+  let rgb = _setRGBData(hex)
+  let textBlack = _getVisibility(hex)
+  return {
+    color: hex,
+    rgb,
+    textBlack,
+  }
+}
+
 const randomPanel = () => {
   const randHex = () => {
     return Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
@@ -13,13 +24,7 @@ const randomPanel = () => {
   let g = randHex()
   let b = randHex()
   let color = '#' + r + g + b
-  let rgb = _setRGBData(color)
-  let textBlack = _getVisibility(color)
-  return {
-    color,
-    rgb,
-    textBlack,
-  }
+  return _acceptHex(color)
 }
 
 const initializer = () => {
@@ -47,11 +52,16 @@ export const panelsSlice = createSlice({
     },
     setParadeOpen: (state) => {
       state.openedParade = true;
+    },
+    replacePanel: (state, action) => {
+      console.log('runs', action.payload)
+      const replacement = _acceptHex(action.payload.hex)
+      state.colors.splice(action.payload.idx, 1, replacement)
     }
   }
 });
 
-export const { reGenerate, findMatches, setParadeOpen } = panelsSlice.actions;
+export const { findMatches, reGenerate, replacePanel, setParadeOpen } = panelsSlice.actions;
 
 export const selectPanels = (state) => state.panels.colors;
 

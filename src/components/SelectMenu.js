@@ -11,9 +11,7 @@ export function SelectMenu(props) {
   const dispatch = useDispatch();
 
   return (
-        <div
-        // className={styles.selectMenu}
-        >
+        <div>
         <select
         id={name.split(' ').join('').toLowerCase()}
         className={styles.selectMenu}

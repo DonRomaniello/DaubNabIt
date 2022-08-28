@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { _setRGBData } from '../../modules/_setRGBData';
 
 import { _searchPaints } from '../../modules/_searchPaints';
+import { _getVisibility } from '../../modules/_getVisibility';
 
 const randomPanel = () => {
   const randHex = () => {
@@ -13,9 +14,11 @@ const randomPanel = () => {
   let b = randHex()
   let color = '#' + r + g + b
   let rgb = _setRGBData(color)
+  let textBlack = _getVisibility(color)
   return {
     color,
     rgb,
+    textBlack,
   }
 }
 
@@ -29,6 +32,7 @@ const initialState = {
   colors: initializer(),
   openedParade: false,
 }
+
 export const panelsSlice = createSlice({
   name: 'panels',
   initialState,

@@ -8,16 +8,14 @@ import styles from './PaintParade.module.css'
 
 export function PaintParade(props) {
 
-  const { color, matches } = props;
+  const { color, matches, textBlack } = props;
 
   const { timer } = useSelector(selectTimer);
 
   const copyInfo = (match) => {
-    // console.log(match)
     const stringToCopy = '"' + match.paint.name + '" ' + match.paint.brand
     navigator.clipboard.writeText(stringToCopy);
   }
-
 
   return (
     <div>
@@ -31,13 +29,15 @@ export function PaintParade(props) {
         return (
           <div
           key={match.paint.label + match.paint.hex + match.paint.name}
-          className={styles.swatch}
+          // className={styles.swatch}
+          className={`${styles.swatch} ${textBlack && styles.blackText}`}
           style={{
             background: match.paint.hex,
           }}
           onClick={() => copyInfo(match)}
           >
             {match.paint.name}
+            {/* : {_getBrightness(match.paint.hex)} */}
           </div>
         )
         }

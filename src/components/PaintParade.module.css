@@ -47,6 +47,10 @@ body {
   animation-fill-mode: forwards;
 }
 
+.blackText {
+  color: black;
+}
+
 @keyframes swatchEnterAnimation {
   0% {
       height: 0vw;
@@ -55,4 +59,3 @@ body {
       height: var(--swatch-height);
   }
 }
-

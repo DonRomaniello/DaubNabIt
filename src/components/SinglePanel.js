@@ -16,7 +16,7 @@ import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
 
-  const { color, rgb, matches } = props.panel
+  const { color, rgb, matches, textBlack } = props.panel
 
   const dispatch = useDispatch();
 
@@ -69,7 +69,11 @@ export function SinglePanel(props) {
         )
       })}
       </div> */}
-      <PaintParade color={color} matches={matches}/>
+      <PaintParade
+      color={color}
+      matches={matches}
+      textBlack={textBlack}
+      />
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Countdown from 'react-countdown';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { incrementTimer } from '../app/store/timerSlice';
+import { incrementTimer, resetTimer } from '../app/store/timerSlice';
 
 import {
         loadPaints,
@@ -30,8 +30,6 @@ export function FindPaints() {
   const [timerRunning, setTimerRunning] = useState(false);
 
   const findPaints = () => {
-    // dispatch(loadPaints())
-    // dispatch(setRGBData())
     dispatch(findMatches({ paints, brand }))
     setTimerRunning(true);
   }
@@ -40,6 +38,11 @@ export function FindPaints() {
     dispatch(loadPaints())
     dispatch(setRGBData())
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(resetTimer())
+    dispatch(findMatches({ paints, brand }))
+  }, [brand])
 
 
   return (

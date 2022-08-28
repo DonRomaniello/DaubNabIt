@@ -89,6 +89,6 @@ export const selectBrands = (state) => state.paints.brands;
 
 export const currentBrand = (state) => state.paints.selectedBrand;
 
-export const selectMixRation = (state) => state.paints.mixRatio;
+export const selectMixRatio = (state) => state.paints.mixRatio;
 
 export default paintsSlice.reducer;

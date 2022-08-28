@@ -8,7 +8,9 @@ import styles from './PaintParade.module.css'
 
 export function PaintParade(props) {
 
-  const { color, matches, textBlack } = props;
+  const { panel } = props
+
+  const { color, matches, textBlack, timerOffset } = panel;
 
   const { timer } = useSelector(selectTimer);
 
@@ -21,15 +23,13 @@ export function PaintParade(props) {
     <div>
       {(timer > 0) &&
       <div
-      // className={styles.swatches}
       className={styles.swatches}
       >
       {matches?.slice(0,5).map((match, idx) => {
-        if (idx < timer) {
+        if (idx < (timer - timerOffset)) {
         return (
           <div
           key={match.paint.label + match.paint.hex + match.paint.name}
-          // className={styles.swatch}
           className={`${styles.swatch} ${textBlack && styles.blackText}`}
           style={{
             background: match.paint.hex,
@@ -37,7 +37,6 @@ export function PaintParade(props) {
           onClick={() => copyInfo(match)}
           >
             {match.paint.name}
-            {/* : {_getBrightness(match.paint.hex)} */}
           </div>
         )
         }

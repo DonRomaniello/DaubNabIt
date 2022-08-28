@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch, dispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {  reGenerate,
+import {
+          reGenerate,
           findMatches,
           replacePanel
          } from '../app/store/panelsSlice';
+
+import {
+        currentBrand,
+        selectPaints
+      } from '../app/store/paintsSlice';
+
+import { selectTimer } from '../app/store/timerSlice';
 
 import { _createTintGrid } from '../modules/_createTintGrid';
 
@@ -15,9 +23,15 @@ import styles from './SinglePanel.module.css';
 
 export function SinglePanel(props) {
 
-  const { color, rgb, matches, textBlack } = props.panel
+  const { panel, idx } = props
 
-  const { idx } = props
+  const { color, rgb, matches, textBlack } = panel
+
+  const { timer } = useSelector(selectTimer);
+
+  const paints = useSelector(selectPaints);
+
+  const brand  = useSelector(currentBrand);
 
   const dispatch = useDispatch();
 
@@ -35,9 +49,12 @@ export function SinglePanel(props) {
   }, [range])
 
   const changeColor = () => {
-    let replacer = '#7E737D'
-    console.log(idx)
-    dispatch(replacePanel({idx, hex: replacer}))
+    navigator.clipboard.readText().then(
+      (clipboardColor) => {
+        dispatch(replacePanel({idx, hex: clipboardColor, timerOffset: timer}))
+        dispatch(findMatches({ paints, brand }))
+      }
+    )
   }
 
   return (
@@ -60,9 +77,7 @@ export function SinglePanel(props) {
           </div>
         </div>
       <PaintParade
-      color={color}
-      matches={matches}
-      textBlack={textBlack}
+        panel={panel}
       />
     </div>
   )

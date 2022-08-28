@@ -5,7 +5,7 @@ import { _setRGBData } from '../../modules/_setRGBData';
 import { _searchPaints } from '../../modules/_searchPaints';
 import { _getVisibility } from '../../modules/_getVisibility';
 
-const _acceptHex = (hex) => {
+const _acceptHex = (hex, timerOffset) => {
 
   let rgb = _setRGBData(hex)
   let textBlack = _getVisibility(hex)
@@ -13,6 +13,7 @@ const _acceptHex = (hex) => {
     color: hex,
     rgb,
     textBlack,
+    timerOffset
   }
 }
 
@@ -24,7 +25,7 @@ const randomPanel = () => {
   let g = randHex()
   let b = randHex()
   let color = '#' + r + g + b
-  return _acceptHex(color)
+  return _acceptHex(color, 0)
 }
 
 const initializer = () => {
@@ -54,8 +55,8 @@ export const panelsSlice = createSlice({
       state.openedParade = true;
     },
     replacePanel: (state, action) => {
-      console.log('runs', action.payload)
-      const replacement = _acceptHex(action.payload.hex)
+      console.log(action.payload)
+      const replacement = _acceptHex(action.payload.hex, action.payload.timerOffset)
       state.colors.splice(action.payload.idx, 1, replacement)
     }
   }

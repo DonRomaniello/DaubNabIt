@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { ReactComponent as Refresh } from '../arrow-repeat.svg';
+
 import {
         currentBrand,
         selectBrands,
@@ -12,7 +14,7 @@ import {
 import { IconContext } from 'react-icons';
 
 import {
-        BsArrowRepeat,
+        BsArrowRepeatModded,
         BsGearFill
         } from 'react-icons/bs';
 
@@ -59,6 +61,7 @@ export function Settings() {
     <div className={`${styles.settingsRow} + ' ' + ${paradeOpened && styles.settingsRowParadeOpened}`}>
     <IconContext.Provider value={{ className: styles.context }}>
       <BsGearFill
+      // style={'stroke=black'}
       className={styles.gear}
       size={gearSize}
       onClick={() => openSet(!settingsOpened)}
@@ -73,9 +76,9 @@ export function Settings() {
         / >
       }
       {(settingsOpened || paradeOpened) ?
-      <BsArrowRepeat
+      <Refresh
       className={styles.gear}
-      size={gearSize}
+
       onClick={() => reRoll()}
       /> : null}
       </div>

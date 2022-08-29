@@ -27,8 +27,6 @@ export function PaintParade(props) {
     );
   }
 
-  // #6688FF
-
   return (
     <div>
       {(timer > 0) &&

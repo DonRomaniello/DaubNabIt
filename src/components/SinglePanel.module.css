@@ -1,11 +1,32 @@
 .colorBar {
- width: 30vw;
- height: 30vw;
  border-radius: 3vw;
  flex: auto;
  display: flex;
  overflow: hidden;
+ transition: width .2s, height .2s;
 }
+
+@media (max-width: 600px) {
+  .colorBar {
+    width: 90vw;
+    height: 90vw;
+  }
+}
+
+@media (min-width: 600px) {
+  .colorBar {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .colorBar {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
 
 .colorVariation {
   flex: 1;

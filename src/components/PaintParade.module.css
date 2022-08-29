@@ -24,8 +24,41 @@ body {
  font-size: 1.2em;
 }
 
-.swatchesOpened {
-  height: 30vw;
+
+@media (max-width: 600px) {
+  .swatches {
+    width: 90vw;
+  }
+  .swatchesOpened {
+    height: 90vw;
+  }
+  :root {
+    --swatch-height: calc(90vw / 5);
+  }
+}
+
+@media (min-width: 600px) {
+  .swatches {
+    width: 45vw;
+  }
+  .swatchesOpened {
+    height: 45vw;
+  }
+  :root {
+    --swatch-height: calc(45vw / 5);
+  }
+}
+
+@media (min-width: 768px) {
+  .swatches {
+    width: 30vw;
+  }
+  .swatchesOpened {
+    height: 30vw;
+  }
+  :root {
+    --swatch-height: calc(30vw / 5);
+  }
 }
 
 @keyframes swatchesEnterAnimation {

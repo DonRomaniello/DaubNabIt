@@ -14,7 +14,7 @@ export function PaintParade(props) {
 
   const { panel } = props
 
-  const { color, matches, textBlack, timerOffset } = panel;
+  const { matches, textBlack, timerOffset } = panel;
 
   const { timer } = useSelector(selectTimer);
 

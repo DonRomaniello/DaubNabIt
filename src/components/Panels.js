@@ -16,6 +16,8 @@ export function Panels() {
 
   const [visiblePanels, setVisiblePanels] = useState();
 
+  /* These names mean that the LENGTH of the object key
+  can be used as the amount of columns. */
   const { current } = useMedia({
     a: 0,
     bb: 600,

@@ -31,11 +31,14 @@ import {
 
 import { SelectMenu } from './SelectMenu';
 
+import { Help } from './Help'
+
 import styles from './Settings.module.css';
 
-const gearSize = '60px';
 
 export function Settings() {
+
+  const gearSize = '60px';
 
   const dispatch = useDispatch();
 
@@ -58,6 +61,7 @@ export function Settings() {
   }
 
   return (
+    <>
     <div className={`${styles.settingsRow} + ' ' + ${paradeOpened && styles.settingsRowParadeOpened}`}>
     <IconContext.Provider value={{ className: styles.context }}>
       <BsGearFill
@@ -81,6 +85,12 @@ export function Settings() {
 
       onClick={() => reRoll()}
       /> : null}
+      </div >
+      <div>
+      {(settingsOpened || paradeOpened) ?
+      <Help />
+      : null}
       </div>
+      </>
   )
 }

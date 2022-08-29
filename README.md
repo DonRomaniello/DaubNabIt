@@ -1,47 +1,43 @@
-# Getting Started with Create React App and Redux
+###Daub Nab It
+Paint manufacturers publish color information about the hues they sell.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This tool compares the colors at the top of the page to those published lists of colors and returns the closest matches.
 
-## Available Scripts
+How to Use Daub Nab It
+Click Find Paints. This will search all the paint libraries for matches and display the best results.
 
-In the project directory, you can run:
+If you want to narrow down the search to one brand of paint, you can do so in the Settings menu.
 
-### `npm start`
+If you intend to actually buy the paint colors, you can click the color you want and an easy-to-use search term will be copied to your clipboard. This can then be pasted into a search bar.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Why Aren’t These
+Exact Matches?
+The paint companies that publish their color information do so in a format where there are upwards of sixteen and a half million possible colors.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The color list in this project has just a little over eighteen thousand colors.
 
-### `npm test`
+Some simple arithmetic provides a likelihood of around one in nine hundred that any given randomly generated or carefully selected color will match perfectly with a paint in the list.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+How to Search for
+Custom Colors
+First, get a color in the hexadecimal format. The excellent Coolors is a great way to generate hues.
 
-### `npm run build`
+Once you have a color description in hexadecimal format (for example, #ECF4FE or ecf4fe), simply copy the text.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Click on a large color box at the top of the page. Your browser should ask for permission to access your clipboard, and you should allow this.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Caveats
+These color lists don't completely correspond to what is available for purchase. You may discover that the color is no longer manufactured, was never manufactured, or is only available for a special type of client.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you're copying these color names down and then going to a store in person, copy a few names for each search. This will save you trips.
 
-### `npm run eject`
+You may also discover that the person behind the counter isn't happy about you coming in with the name of a color instead of just grabbing a swatch from the display like everyone else.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This can lead to all sorts of tense standoffs where you, the person who is about to spend hours changing the entire look and feel of your living space, has to convince them, the person that gives every impression that they are being paid to protect paint from the likes of you... to sell you paint.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Credits
+Daub Nab It was built by Don Romaniello.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The code can be found here.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# DaubNabIt
+The original format of the color lists were collected and formatted by James Pederson, and published in the colornerd repository.

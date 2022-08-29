@@ -14,7 +14,6 @@ import {
 import { IconContext } from 'react-icons';
 
 import {
-        BsArrowRepeatModded,
         BsGearFill
         } from 'react-icons/bs';
 
@@ -82,7 +81,6 @@ export function Settings() {
       {(settingsOpened || paradeOpened) ?
       <Refresh
       className={styles.gear}
-
       onClick={() => reRoll()}
       /> : null}
       </div >

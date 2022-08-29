@@ -21,7 +21,7 @@ export function PaintParade(props) {
   const notify = (string) => toast("Paint information copied to clipboard!");
 
   const copyInfo = (match) => {
-    const stringToCopy = '"' + match.paint.name + '" ' + match.paint.brand
+    const stringToCopy = match.paint.hex + ' "' + match.paint.name + '" ' + match.paint.brand
     navigator.clipboard.writeText(stringToCopy);
     notify()
   }

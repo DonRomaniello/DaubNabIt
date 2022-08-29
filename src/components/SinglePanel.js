@@ -61,16 +61,13 @@ export function SinglePanel(props) {
       }
     navigator.clipboard.readText().then(
       (clipboardColor) => {
-        let cleanedHex = clipboardColor
-        if (clipboardColor.length == 7) {
-          cleanedHex = clipboardColor.slice(1)
-        } else if (clipboardColor.length > 7) {
-          notify()
-          return
-        }
-        let a = isHex(cleanedHex.slice(0,2).toLowerCase())
-        let b = isHex(cleanedHex.slice(2,4).toLowerCase())
-        let c = isHex(cleanedHex.slice(4,6).toLowerCase())
+        let cleanedHex = clipboardColor.slice(0, 7)
+
+        console.log(cleanedHex)
+
+        let a = isHex(cleanedHex.slice(1,3).toLowerCase())
+        let b = isHex(cleanedHex.slice(3,5).toLowerCase())
+        let c = isHex(cleanedHex.slice(5,7).toLowerCase())
         if (a && b && c) {
           dispatch(replacePanel({idx, hex: clipboardColor, timerOffset: timer}))
           dispatch(findMatches({ paints, brand }))

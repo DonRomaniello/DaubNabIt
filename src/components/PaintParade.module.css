@@ -23,7 +23,6 @@ body {
  font-family: "Gill Sans", sans-serif;
  font-size: 1.2em;
  transition: width .1s, height .1s;
- -webkit-perspective: 1000;
  -webkit-backface-visibility: hidden;
 }
 

@@ -4,6 +4,8 @@ import { useMedia } from "tiny-use-media-esm";
 
 import { useSelector } from 'react-redux';
 
+import { ToastContainer, toast, Slide } from 'react-toastify';
+
 import { selectPanels } from '../app/store/panelsSlice';
 
 import { SinglePanel } from './SinglePanel';
@@ -25,10 +27,21 @@ export function Panels() {
   });
 
   return (
+    <div>
+      <ToastContainer
+      position="top-center"
+      hideProgressBar
+      newestOnTop={false}
+      transition={Slide}
+      closeonClick
+      rtl={false}
+      limit={1}
+       />
     <div className={styles.row}>
       {panels.slice(0, current.length).map((panel, idx) => {
         return <SinglePanel key={panel.color + idx} panel={panel} idx={idx}/>
       })}
+    </div>
     </div>
   );
 }

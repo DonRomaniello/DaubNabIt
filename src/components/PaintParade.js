@@ -18,12 +18,12 @@ export function PaintParade(props) {
 
   const { timer } = useSelector(selectTimer);
 
-  const notify = () => toast("Paint information copied to clipboard!");
+  const notify = (options) => toast("Paint information copied to clipboard!", options);
 
   const copyInfo = (match) => {
     const stringToCopy = match.paint.hex + ' "' + match.paint.name + '" ' + match.paint.brand
     navigator.clipboard.writeText(stringToCopy).then(() =>
-    notify()
+    notify({autoClose: 2000})
     );
   }
 

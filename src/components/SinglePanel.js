@@ -19,7 +19,7 @@ import { _createTintGrid } from '../modules/_createTintGrid';
 
 import { PaintParade } from './PaintParade';
 
-import { ToastContainer, toast, Slide } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -43,7 +43,8 @@ export function SinglePanel(props) {
 
   const [grid, setGrid] = useState(_createTintGrid(range))
 
-  const notify = (string) => toast("Pasted colors need to be in hexadecimal format (for now). See help for details.");
+  const notify = (message, options) => toast(message,
+  options);
 
   const applyTint = (tint) => {
     let rgbTinted = `rgb(${tint.Red + rgb.Red}, ${tint.Green + rgb.Green}, ${tint.Blue + rgb.Blue})`
@@ -69,23 +70,14 @@ export function SinglePanel(props) {
           dispatch(replacePanel({idx, hex: clipboardColor, timerOffset: timer}))
           dispatch(findMatches({ paints, brand }))
         } else {
-          notify()
+          let message = "Pasted colors need to be in hexadecimal format (for now). See help for details."
+          notify(message, {toastId: message})
         }
       })
+      toast.clearWaitingQueue();
   }
-
   return (
     <div>
-      <ToastContainer
-      position="top-center"
-      // autoClose={2000}
-      hideProgressBar
-      newestOnTop={false}
-      transition={Slide}
-      closeonClick
-      rtl={false}
-      limit={1}
-       />
       <div className={styles.colorBar}
         style={{
           background: color,

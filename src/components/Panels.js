@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { useSelector, dispatch, useDispatch } from 'react-redux';
+import { useMedia } from "tiny-use-media-esm";
+
+import { useSelector } from 'react-redux';
 
 import { selectPanels } from '../app/store/panelsSlice';
 
@@ -12,9 +14,17 @@ export function Panels() {
 
   const panels = useSelector(selectPanels)
 
+  const [visiblePanels, setVisiblePanels] = useState();
+
+  const { current } = useMedia({
+    a: 0,
+    bb: 600,
+    ccc: 768,
+  });
+
   return (
     <div className={styles.row}>
-      {panels.map((panel, idx) => {
+      {panels.slice(0, current.length).map((panel, idx) => {
         return <SinglePanel key={panel.color + idx} panel={panel} idx={idx}/>
       })}
     </div>

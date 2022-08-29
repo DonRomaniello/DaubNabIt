@@ -3,3 +3,9 @@
   justify-content: center;
   margin: 5vw;
 }
+
+@media (max-width: 2000px) {
+  .row {
+    columns: 1;
+  }
+}

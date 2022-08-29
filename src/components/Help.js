@@ -50,7 +50,7 @@ const gearSize = '55px';
         If you want to narrow down the search to one brand of paint, you can do so in the Settings menu.
           <br />
           <br />
-          If you intend to actually buy the paint colors, you can click the color you want and an easy-to-use search term will be copied to your clipboard. This can then be pasted in a search engine.
+          If you intend to actually buy the paint colors, you can click the color you want and an easy-to-use search term will be copied to your clipboard. This can then be pasted into a search bar.
         </p>
       <h2>Why Aren’t There Exact Matches?</h2>
       <p>The paint companies that publish their color information do so in a format where there are upwards of sixteen and a half million possible colors.
@@ -66,7 +66,7 @@ const gearSize = '55px';
         First, get a color in the hexadecimal format. The excellent  <a href='https://coolors.co' target='_blank'>Coolors</a> is a great way to generate hues.
         <br/>
         <br/>
-        Once you have a color description in hexadecimal format, simply copy the text (for example, #ECF4FE or ecf4fe).
+        Once you have a color description in hexadecimal format (for example, #ECF4FE or ecf4fe), simply copy the text.
         <br/>
         <br/>
         Click on a large color box at the top of the page. Your browser should ask for permission to access your clipboard, and you should allow this.
@@ -79,7 +79,7 @@ const gearSize = '55px';
           If you're copying these color names down and then going to a store in person, copy a few names for each search. This will save you trips.
         <br/>
         <br/>
-          You may also discover that the person behind the counter isn't happy about you coming in with a name of a color instead of just grabbing a swatch from the display like everyone else.
+          You may also discover that the person behind the counter isn't happy about you coming in with the name of a color instead of just grabbing a swatch from the display like everyone else.
           <br/>
           <br/>
           This can lead to all sorts of tense standoffs where you, the person who is about to spend hours changing the entire look and feel of your living space, has to convince them, the person that gives every impression that they are being paid to protect paint from the likes of you... to sell you paint.
@@ -91,7 +91,10 @@ const gearSize = '55px';
         <br />
         <br />
         <p>
-        Daub Nab It was built by <a href='https://donromaniello.com'>Don Romaniello.</a> The code can be <a href='https://github.com/DonRomaniello/DaubNabIt'>found here.</a>
+        Daub Nab It was built by <a href='https://donromaniello.com'>Don Romaniello.</a>
+        <br />
+        <br />
+        The code can be <a href='https://github.com/DonRomaniello/DaubNabIt'>found here.</a>
         </p>
       </div>
       }

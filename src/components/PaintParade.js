@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { selectTimer } from '../app/store/timerSlice';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -18,24 +18,19 @@ export function PaintParade(props) {
 
   const { timer } = useSelector(selectTimer);
 
-  const notify = (string) => toast("Paint information copied to clipboard!");
+  const notify = () => toast("Paint information copied to clipboard!");
 
   const copyInfo = (match) => {
     const stringToCopy = match.paint.hex + ' "' + match.paint.name + '" ' + match.paint.brand
-    navigator.clipboard.writeText(stringToCopy);
+    navigator.clipboard.writeText(stringToCopy).then(() =>
     notify()
+    );
   }
+
+
 
   return (
     <div>
-      <ToastContainer
-      position="top-center"
-      autoClose={2000}
-      hideProgressBar
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-       />
       {(timer > 0) &&
       <div
       className={styles.swatches}

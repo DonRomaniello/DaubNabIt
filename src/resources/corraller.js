@@ -68,11 +68,3 @@ fileList.forEach((fileName) => {
 
   });
 })
-
-
-
-
-
-
-
-// console.log(fileList)

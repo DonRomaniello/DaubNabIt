@@ -19,7 +19,7 @@ import { _createTintGrid } from '../modules/_createTintGrid';
 
 import { PaintParade } from './PaintParade';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -62,9 +62,6 @@ export function SinglePanel(props) {
     navigator.clipboard.readText().then(
       (clipboardColor) => {
         let cleanedHex = clipboardColor.slice(0, 7)
-
-        console.log(cleanedHex)
-
         let a = isHex(cleanedHex.slice(1,3).toLowerCase())
         let b = isHex(cleanedHex.slice(3,5).toLowerCase())
         let c = isHex(cleanedHex.slice(5,7).toLowerCase())
@@ -81,11 +78,13 @@ export function SinglePanel(props) {
     <div>
       <ToastContainer
       position="top-center"
-      autoClose={2000}
+      // autoClose={2000}
       hideProgressBar
       newestOnTop={false}
-      closeOnClick
+      transition={Slide}
+      closeonClick
       rtl={false}
+      limit={1}
        />
       <div className={styles.colorBar}
         style={{

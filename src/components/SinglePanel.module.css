@@ -1,3 +1,9 @@
+:root {
+  --toastify-color-light: #ECF4FE;
+  --toastify-font-family: font-family: "Gill Sans", sans-serif;
+  --toastify-text-color-light: black;
+}
+
 .colorBar {
  border-radius: 3vw;
  flex: auto;

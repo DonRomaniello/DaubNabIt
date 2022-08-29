@@ -55,7 +55,6 @@ export const panelsSlice = createSlice({
       state.openedParade = true;
     },
     replacePanel: (state, action) => {
-      console.log(action.payload)
       const replacement = _acceptHex(action.payload.hex, action.payload.timerOffset)
       state.colors.splice(action.payload.idx, 1, replacement)
     }

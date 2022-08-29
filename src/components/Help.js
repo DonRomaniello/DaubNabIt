@@ -52,7 +52,7 @@ const gearSize = '55px';
           <br />
           If you intend to actually buy the paint colors, you can click the color you want and an easy-to-use search term will be copied to your clipboard. This can then be pasted into a search bar.
         </p>
-      <h2>Why Aren’t There Exact Matches?</h2>
+      <h2>Why Aren’t These<br/> Exact Matches?</h2>
       <p>The paint companies that publish their color information do so in a format where there are upwards of sixteen and a half million possible colors.
       <br/>
       <br/>
@@ -61,7 +61,7 @@ const gearSize = '55px';
       <br/>
       Some simple arithmetic provides a likelihood of around one in nine hundred that any given randomly generated or carefully selected color will match perfectly with a paint in the list.
       </p>
-      <h2>How to Search for Custom Colors</h2>
+      <h2>How to Search for <br/>Custom Colors</h2>
       <p>
         First, get a color in the hexadecimal format. The excellent  <a href='https://coolors.co' target='_blank'>Coolors</a> is a great way to generate hues.
         <br/>
@@ -86,15 +86,13 @@ const gearSize = '55px';
         </p>
         <h2>Credits</h2>
         <p>
-        The original format of the color lists were formatted for easy use by <a href='https://github.com/jpederson' target='_blank'>James Pederson</a>, published for easy use in the <a href='https://github.com/jpederson/colornerd' target='_blank'>colornerd repository</a>.
-        </p>
-        <br />
-        <br />
-        <p>
         Daub Nab It was built by <a href='https://donromaniello.com'>Don Romaniello.</a>
         <br />
         <br />
         The code can be <a href='https://github.com/DonRomaniello/DaubNabIt'>found here.</a>
+        <br />
+        <br />
+        The original format of the color lists were collected and formatted by <a href='https://github.com/jpederson' target='_blank'>James Pederson</a>, and published in the <a href='https://github.com/jpederson/colornerd' target='_blank'>colornerd repository</a>.
         </p>
       </div>
       }

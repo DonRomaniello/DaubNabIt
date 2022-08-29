@@ -8,9 +8,27 @@
 
 .settingsRowParadeOpened {
   position: absolute;
-  top: 70vw;
   width: 100vw;
 }
+
+@media (max-width: 600px) {
+  .settingsRowParadeOpened {
+    top: 195vw;
+  }
+}
+
+@media (min-width: 600px) {
+  .settingsRowParadeOpened {
+    top: 100vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .settingsRowParadeOpened {
+    top: 70vw;
+  }
+}
+
 
 .settingsRow > * {
   margin-right: 10px;
@@ -23,10 +41,7 @@
 }
 
 .gear {
-  /* margin: 1px; */
-  /* size: 100px; */
   height: 100%;
-  /* height: 60px; */
   fill: #ECF4FE;
   padding: 5px;
   stroke: gray;

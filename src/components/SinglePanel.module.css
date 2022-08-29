@@ -3,7 +3,7 @@
  flex: auto;
  display: flex;
  overflow: hidden;
- transition: width .2s, height .2s;
+ transition: width .1s, height .1s;
 }
 
 @media (max-width: 600px) {
@@ -20,7 +20,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .colorBar {
     width: 30vw;
     height: 30vw;

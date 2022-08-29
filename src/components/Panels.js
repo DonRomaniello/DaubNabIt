@@ -21,7 +21,7 @@ export function Panels() {
   const { current } = useMedia({
     a: 0,
     bb: 600,
-    ccc: 768,
+    ccc: 800,
   });
 
   return (

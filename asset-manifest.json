@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/DaubNabIt/static/css/main.2d94cf99.css",
-    "main.js": "/DaubNabIt/static/js/main.b9ba0d57.js",
+    "main.js": "/DaubNabIt/static/js/main.d7a6638e.js",
     "static/js/787.d15dedd8.chunk.js": "/DaubNabIt/static/js/787.d15dedd8.chunk.js",
     "static/media/arrow-repeat.svg": "/DaubNabIt/static/media/arrow-repeat.245f0a895852eccc504804bbe3113d56.svg",
     "index.html": "/DaubNabIt/index.html",
     "main.2d94cf99.css.map": "/DaubNabIt/static/css/main.2d94cf99.css.map",
-    "main.b9ba0d57.js.map": "/DaubNabIt/static/js/main.b9ba0d57.js.map",
+    "main.d7a6638e.js.map": "/DaubNabIt/static/js/main.d7a6638e.js.map",
     "787.d15dedd8.chunk.js.map": "/DaubNabIt/static/js/787.d15dedd8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2d94cf99.css",
-    "static/js/main.b9ba0d57.js"
+    "static/js/main.d7a6638e.js"
   ]
 }

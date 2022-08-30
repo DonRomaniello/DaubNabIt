@@ -79,10 +79,7 @@ const gearSize = '55px';
           If you're copying these color names down and then going to a store in person, copy a few names for each search. This will save you trips.
         <br/>
         <br/>
-          You may also discover that the person behind the counter isn't happy about you coming in with the name of a color instead of just grabbing a swatch from the display like everyone else.
-          <br/>
-          <br/>
-          This can lead to all sorts of tense standoffs where you, the person who is about to spend hours changing the entire look and feel of your living space, has to convince them, the person that gives every impression that they are being paid to protect paint from the likes of you... to sell you paint.
+          Also, just because a paint is in this list doesn't mean a store carries that color of paint. Or, the store may have that color paint, but not by that name in their database.
         </p>
         <h2>Credits</h2>
         <p>

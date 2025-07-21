@@ -45,7 +45,7 @@ export function FindPaints() {
   useEffect(() => {
     dispatch(resetTimer())
     dispatch(findMatches({ paints, brand }))
-  }, [brand])
+  }, [brand, dispatch, paints])
 
 
   return (

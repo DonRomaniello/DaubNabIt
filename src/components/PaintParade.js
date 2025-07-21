@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { selectTimer } from '../app/store/timerSlice';
 
@@ -48,6 +48,7 @@ export function PaintParade(props) {
           </div>
         )
         }
+        return null;
       })}
       </div>
     }

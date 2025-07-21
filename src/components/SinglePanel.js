@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-          reGenerate,
           findMatches,
           replacePanel
          } from '../app/store/panelsSlice';
@@ -63,7 +62,7 @@ export function SinglePanel(props) {
     navigator.clipboard.readText().then(
       (clipboardColor) => {
         let cleanedHex
-        if (clipboardColor.slice(0,1) == '#') {
+        if (clipboardColor.slice(0,1) === '#') {
           cleanedHex = clipboardColor.slice(1, 7)
         } else {
           cleanedHex = clipboardColor.slice(0,6)
@@ -90,8 +89,9 @@ export function SinglePanel(props) {
         onClick={() => changeColor()}
         >
           <div className={styles.gridContainer} >
-            {grid.map((tint) => {
+            {grid.map((tint, index) => {
               return (<div
+                key={index}
                 className={styles.gridCell}
                 style={{
                   background: applyTint(tint),

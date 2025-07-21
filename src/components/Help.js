@@ -63,7 +63,7 @@ const gearSize = '55px';
       </p>
       <h2>How to Search for <br/>Custom Colors</h2>
       <p>
-        First, get a color in the hexadecimal format. The excellent  <a href='https://coolors.co' target='_blank'>Coolors</a> is a great way to generate hues.
+        First, get a color in the hexadecimal format. The excellent  <a href='https://coolors.co' target='_blank' rel='noreferrer'>Coolors</a> is a great way to generate hues.
         <br/>
         <br/>
         Once you have a color description in hexadecimal format (for example, #ECF4FE or ecf4fe), simply copy the text.
@@ -89,7 +89,7 @@ const gearSize = '55px';
         The code can be <a href='https://github.com/DonRomaniello/DaubNabIt'>found here.</a>
         <br />
         <br />
-        The original format of the color lists were collected and formatted by <a href='https://github.com/jpederson' target='_blank'>James Pederson</a>, and published in the <a href='https://github.com/jpederson/colornerd' target='_blank'>colornerd repository</a>.
+        The original format of the color lists were collected and formatted by <a href='https://github.com/jpederson' target='_blank' rel='noreferrer'>James Pederson</a>, and published in the <a href='https://github.com/jpederson/colornerd' target='_blank' rel='noreferrer'>colornerd repository</a>.
         </p>
       </div>
       }

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { useMedia } from "tiny-use-media-esm";
 
 import { useSelector } from 'react-redux';
 
-import { ToastContainer, toast, Slide } from 'react-toastify';
+import { ToastContainer, Slide } from 'react-toastify';
 
 import { selectPanels } from '../app/store/panelsSlice';
 
@@ -15,8 +15,6 @@ import styles from './Panels.module.css';
 export function Panels() {
 
   const panels = useSelector(selectPanels)
-
-  const [visiblePanels, setVisiblePanels] = useState();
 
   /* These names mean that the LENGTH of the object key
   can be used as the amount of columns. */

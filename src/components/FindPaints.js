@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   currentBrand,
   loadPaints,
-  setRGBData,
   selectPaints,
 } from '../app/store/paintsSlice';
 import {
@@ -22,17 +21,16 @@ export function FindPaints() {
 
   useEffect(() => {
     dispatch(loadPaints());
-    dispatch(setRGBData());
   }, [dispatch]);
 
   useEffect(() => {
+    if (paints.length === 0) return;
     dispatch(closeParade());
-    if (paints.length > 0) {
-      dispatch(findMatches({ paints, brand }));
-    }
+    dispatch(findMatches({ paints, brand }));
   }, [brand, dispatch, paints]);
 
   const findPaints = () => {
+    if (paints.length === 0) return;
     dispatch(findMatches({ paints, brand }));
     dispatch(setParadeOpen());
   };
@@ -42,6 +40,7 @@ export function FindPaints() {
       <button
         className={`${styles.findButton} ${opened ? styles.findButtonClosed : ''}`}
         onClick={findPaints}
+        disabled={paints.length === 0}
       >
         Find Paints
       </button>

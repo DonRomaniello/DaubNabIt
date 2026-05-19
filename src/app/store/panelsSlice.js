@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { _setRGBData } from '../../modules/_setRGBData';
 import { _searchPaints } from '../../modules/_searchPaints';
 import { _getVisibility } from '../../modules/_getVisibility';
+import { PANEL_COUNT } from '../../config';
 
 const _acceptHex = (hex) => ({
   color: hex,
@@ -16,7 +17,8 @@ const randomPanel = () => {
   return _acceptHex(color);
 };
 
-const initializer = () => [randomPanel(), randomPanel(), randomPanel()];
+const initializer = () =>
+  Array.from({ length: PANEL_COUNT }, randomPanel);
 
 const initialState = {
   colors: initializer(),

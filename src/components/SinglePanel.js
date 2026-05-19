@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findMatches, replacePanel } from '../app/store/panelsSlice';
 import { currentBrand, selectPaints } from '../app/store/paintsSlice';
 import { useClipboardHex } from '../hooks/useClipboardHex';
 import { ColorBar } from './ColorBar';
 import { PaintParade } from './PaintParade';
+import { TINT_RANGE } from '../config';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 export function SinglePanel({ panel, idx }) {
@@ -12,7 +13,6 @@ export function SinglePanel({ panel, idx }) {
   const paints = useSelector(selectPaints);
   const brand = useSelector(currentBrand);
   const dispatch = useDispatch();
-  const [range] = useState(0);
 
   const onHex = useCallback(
     (hex) => {
@@ -26,7 +26,7 @@ export function SinglePanel({ panel, idx }) {
 
   return (
     <div>
-      <ColorBar color={color} rgb={rgb} range={range} onClick={handlePaste} />
+      <ColorBar color={color} rgb={rgb} range={TINT_RANGE} onClick={handlePaste} />
       <PaintParade panel={panel} />
     </div>
   );

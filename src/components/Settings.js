@@ -16,9 +16,8 @@ import {
 } from '../app/store/panelsSlice';
 import { SelectMenu } from './SelectMenu';
 import { Help } from './Help';
+import { GEAR_SIZE, ALL_BRANDS_ID } from '../config';
 import styles from './Settings.module.css';
-
-const GEAR_SIZE = '60px';
 
 export function Settings() {
   const dispatch = useDispatch();
@@ -50,7 +49,7 @@ export function Settings() {
         </IconContext.Provider>
         {settingsOpened && (
           <SelectMenu
-            value="all"
+            value={ALL_BRANDS_ID}
             contents={brands}
             name="Brand of Paint"
             setFunction={setBrand}

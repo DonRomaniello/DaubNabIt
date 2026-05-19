@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux';
 import { BsQuestionCircleFill } from 'react-icons/bs';
 import { paradeIsOpened } from '../app/store/panelsSlice';
 import { helpContent } from '../content/helpContent';
+import { HELP_ICON_SIZE } from '../config';
 import styles from './Help.module.css';
-
-const GEAR_SIZE = '55px';
 
 const renderParagraph = (paragraph, key) => {
   if (typeof paragraph === 'string') {
@@ -40,7 +39,7 @@ export function Help() {
       <IconContext.Provider value={{ className: styles.context }}>
         <BsQuestionCircleFill
           className={styles.question}
-          size={GEAR_SIZE}
+          size={HELP_ICON_SIZE}
           onClick={toggle}
           aria-label="Help"
         />

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { _setRGBData } from '../../modules/_setRGBData';
+import { ALL_BRANDS_ID, ALL_BRANDS_LABEL } from '../../config';
 
 export const loadPaints = createAsyncThunk('paints/load', async () => {
   const module = await import('../../resources/allPaints.json');
@@ -10,10 +11,10 @@ export const loadPaints = createAsyncThunk('paints/load', async () => {
 const initialState = {
   paints: [],
   loading: false,
-  selectedBrand: 'all',
+  selectedBrand: ALL_BRANDS_ID,
   mixRatio: 1,
   brands: [
-    'All Brands',
+    ALL_BRANDS_LABEL,
     'Avery',
     'Behr',
     'Benjamin-Moore',

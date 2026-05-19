@@ -1,5 +1,9 @@
-const MATCH_COUNT = 20;
-const CACHE_LIMIT = 30;
+import {
+  MATCHES_TO_SEARCH,
+  SEARCH_CACHE_LIMIT,
+  ALL_BRANDS_ID,
+  ALL_BRANDS_LABEL,
+} from '../config';
 
 const closeness = (target, paint) =>
   Math.abs(target.Red - paint.rgb.Red) +
@@ -10,7 +14,7 @@ const cache = new Map();
 
 const isAllBrands = (brand) => {
   const b = brand?.toLowerCase();
-  return b === 'all' || b === 'all brands';
+  return b === ALL_BRANDS_ID || b === ALL_BRANDS_LABEL.toLowerCase();
 };
 
 export const _searchPaints = (color, payload) => {
@@ -33,10 +37,10 @@ export const _searchPaints = (color, payload) => {
     matches[i] = { paint: pool[i], closeness: closeness(color, pool[i]) };
   }
   matches.sort((a, b) => a.closeness - b.closeness);
-  const result = matches.slice(0, MATCH_COUNT);
+  const result = matches.slice(0, MATCHES_TO_SEARCH);
 
   cache.set(key, result);
-  if (cache.size > CACHE_LIMIT) {
+  if (cache.size > SEARCH_CACHE_LIMIT) {
     cache.delete(cache.keys().next().value);
   }
   return result;

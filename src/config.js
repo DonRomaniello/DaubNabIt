@@ -1,0 +1,11 @@
+export const PANEL_COUNT = 3;
+export const MATCHES_TO_DISPLAY = 5;
+export const MATCHES_TO_SEARCH = 20;
+export const STAGGER_MS = 200;
+export const TINT_GRID_SIZE = 7;
+export const TINT_RANGE = 0;
+export const SEARCH_CACHE_LIMIT = 30;
+export const GEAR_SIZE = '60px';
+export const HELP_ICON_SIZE = '55px';
+export const ALL_BRANDS_ID = 'all';
+export const ALL_BRANDS_LABEL = 'All Brands';

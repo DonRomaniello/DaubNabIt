@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -17,10 +17,7 @@ import {
         BsGearFill
         } from 'react-icons/bs';
 
-import {
-        selectTimer,
-        resetTimer
-         } from '../app/store/timerSlice';
+import { resetTimer } from '../app/store/timerSlice';
 
 import {
         paradeIsOpened,
@@ -44,8 +41,6 @@ export function Settings() {
   const [settingsOpened, openSet] = useState(false);
 
   const paradeOpened = useSelector(paradeIsOpened);
-
-  const { timer } = useSelector(selectTimer);
 
   const brands = useSelector(selectBrands);
 

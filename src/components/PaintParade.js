@@ -1,57 +1,34 @@
-import React, { useState } from 'react';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { selectTimer } from '../app/store/timerSlice';
-
-import { toast} from 'react-toastify';
-
+import { useCopyPaintToClipboard } from '../hooks/useCopyPaintToClipboard';
 import 'react-toastify/dist/ReactToastify.min.css';
+import styles from './PaintParade.module.css';
 
-import styles from './PaintParade.module.css'
+const MAX_MATCHES = 5;
 
-export function PaintParade(props) {
-
-  const { panel } = props
-
+export function PaintParade({ panel }) {
   const { matches, textBlack, timerOffset } = panel;
-
   const { timer } = useSelector(selectTimer);
+  const copyInfo = useCopyPaintToClipboard();
 
-  const notify = (options) => toast("Paint information copied to clipboard!", options);
-
-  const copyInfo = (match) => {
-    const stringToCopy = match.paint.hex + ' "' + match.paint.name + '" ' + match.paint.brand
-    navigator.clipboard.writeText(stringToCopy).then(() =>
-    notify({autoClose: 2000})
-    );
-  }
+  if (timer <= 0) return null;
 
   return (
-    <div>
-      {(timer > 0) &&
-      <div
-      className={styles.swatches}
-      >
-      {matches?.slice(0,5).map((match, idx) => {
-        if (idx < (timer - timerOffset)) {
+    <div className={styles.swatches}>
+      {matches?.slice(0, MAX_MATCHES).map((match, idx) => {
+        if (idx >= timer - timerOffset) return null;
         return (
           <div
-          key={match.paint.label + match.paint.hex + match.paint.name}
-          className={`${styles.swatch} ${textBlack && styles.blackText}`}
-          style={{
-            background: match.paint.hex,
-          }}
-          onClick={() => copyInfo(match)}
+            key={match.paint.label + match.paint.hex + match.paint.name}
+            className={`${styles.swatch} ${textBlack ? styles.blackText : ''}`}
+            style={{ background: match.paint.hex }}
+            onClick={() => copyInfo(match)}
           >
             {match.paint.name}
           </div>
-        )
-        }
+        );
       })}
-      </div>
-    }
     </div>
-  )
-
+  );
 }

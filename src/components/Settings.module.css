@@ -35,6 +35,22 @@
   margin-left: 10px;
 }
 
+.iconButton {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
 .context {
   vertical-align: middle;
   padding-bottom: 5vh;

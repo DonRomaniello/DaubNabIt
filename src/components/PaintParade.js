@@ -16,7 +16,8 @@ export function PaintParade({ panel }) {
   return (
     <div className={styles.swatches}>
       {matches.slice(0, MATCHES_TO_DISPLAY).map((match, idx) => (
-        <div
+        <button
+          type="button"
           key={match.paint.label + match.paint.hex + match.paint.name}
           className={`${styles.swatch} ${textBlack ? styles.blackText : ''}`}
           style={{
@@ -24,9 +25,10 @@ export function PaintParade({ panel }) {
             animationDelay: `${idx * STAGGER_MS}ms`,
           }}
           onClick={() => copyInfo(match)}
+          aria-label={`Copy ${match.paint.name} by ${match.paint.brand} to clipboard`}
         >
           {match.paint.name}
-        </div>
+        </button>
       ))}
     </div>
   );

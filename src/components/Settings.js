@@ -39,14 +39,17 @@ export function Settings() {
           paradeOpened ? styles.settingsRowParadeOpened : ''
         }`}
       >
-        <IconContext.Provider value={{ className: styles.context }}>
-          <BsGearFill
-            className={styles.gear}
-            size={GEAR_SIZE}
-            onClick={() => openSet(!settingsOpened)}
-            aria-label="Settings"
-          />
-        </IconContext.Provider>
+        <button
+          type="button"
+          className={styles.iconButton}
+          onClick={() => openSet((open) => !open)}
+          aria-label="Settings"
+          aria-expanded={settingsOpened}
+        >
+          <IconContext.Provider value={{ className: styles.context }}>
+            <BsGearFill className={styles.gear} size={GEAR_SIZE} />
+          </IconContext.Provider>
+        </button>
         {settingsOpened && (
           <SelectMenu
             value={ALL_BRANDS_ID}
@@ -56,11 +59,14 @@ export function Settings() {
           />
         )}
         {(settingsOpened || paradeOpened) && (
-          <Refresh
-            className={styles.gear}
+          <button
+            type="button"
+            className={styles.iconButton}
             onClick={reRoll}
             aria-label="Reroll panels"
-          />
+          >
+            <Refresh className={styles.gear} />
+          </button>
         )}
       </div>
       <div>{(settingsOpened || paradeOpened) && <Help />}</div>

@@ -4,6 +4,16 @@
   display: flex;
   overflow: hidden;
   transition: width .1s, height .1s;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.colorBar:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.5);
+  outline-offset: 2px;
 }
 
 @media (max-width: 600px) {

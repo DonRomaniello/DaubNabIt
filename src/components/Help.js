@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 import { useSelector } from 'react-redux';
 import { BsQuestionCircleFill } from 'react-icons/bs';
@@ -30,22 +30,43 @@ export function Help() {
   const paradeOpened = useSelector(paradeIsOpened);
   const [helpOpen, setHelpOpen] = useState(false);
 
-  const toggle = () => setHelpOpen((open) => !open);
+  const close = () => setHelpOpen(false);
+
+  useEffect(() => {
+    if (!helpOpen) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [helpOpen]);
 
   return (
     <div
       className={`${styles.help} ${paradeOpened ? styles.helpParadeOpened : ''}`}
     >
-      <IconContext.Provider value={{ className: styles.context }}>
-        <BsQuestionCircleFill
-          className={styles.question}
-          size={HELP_ICON_SIZE}
-          onClick={toggle}
-          aria-label="Help"
-        />
-      </IconContext.Provider>
+      <button
+        type="button"
+        className={styles.iconButton}
+        onClick={() => setHelpOpen((open) => !open)}
+        aria-label="Help"
+        aria-expanded={helpOpen}
+      >
+        <IconContext.Provider value={{ className: styles.context }}>
+          <BsQuestionCircleFill
+            className={styles.question}
+            size={HELP_ICON_SIZE}
+          />
+        </IconContext.Provider>
+      </button>
       {helpOpen && (
-        <div className={styles.helpWindow} onClick={toggle}>
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={helpContent.title}
+          className={styles.helpWindow}
+          onClick={close}
+        >
           <h1>{helpContent.title}</h1>
           {helpContent.intro.map((text, i) => (
             <p key={i}>{text}</p>

@@ -80,6 +80,16 @@ body {
   animation: swatchEnterAnimation ease 200ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.swatch:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: -2px;
 }
 
 .blackText {

@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findMatches, replacePanel } from '../app/store/panelsSlice';
 import { currentBrand, selectPaints } from '../app/store/paintsSlice';
-import { selectTimer } from '../app/store/timerSlice';
 import { useClipboardHex } from '../hooks/useClipboardHex';
 import { ColorBar } from './ColorBar';
 import { PaintParade } from './PaintParade';
@@ -10,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 export function SinglePanel({ panel, idx }) {
   const { color, rgb } = panel;
-  const { timer } = useSelector(selectTimer);
   const paints = useSelector(selectPaints);
   const brand = useSelector(currentBrand);
   const dispatch = useDispatch();
@@ -18,10 +16,10 @@ export function SinglePanel({ panel, idx }) {
 
   const onHex = useCallback(
     (hex) => {
-      dispatch(replacePanel({ idx, hex, timerOffset: timer }));
+      dispatch(replacePanel({ idx, hex }));
       dispatch(findMatches({ paints, brand }));
     },
-    [dispatch, idx, timer, paints, brand]
+    [dispatch, idx, paints, brand]
   );
 
   const handlePaste = useClipboardHex(onHex);
